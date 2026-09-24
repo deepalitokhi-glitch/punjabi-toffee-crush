@@ -2,83 +2,190 @@
 <html lang="pa" translate="no">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 <meta name="google" content="notranslate">
-<title>Punjabi Toffee Crush - V24 FINAL</title>
+<title>Punjabi Toffee Crush V25</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
-html,body{height:100%;overflow:hidden}
-body{background:url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=600&q=70') center/cover fixed;display:flex;justify-content:center;align-items:flex-start}
-.card{background:#fff;border-radius:16px;padding:10px;width:100%;max-width:400px;max-height:92vh;overflow-y:auto;text-align:center;box-shadow:0 8px 20px rgba(0,0,0,.35);border:2px solid #ff9800;margin:6px 6px 70px 6px}
-#startScreen{position:fixed;inset:0;background:linear-gradient(rgba(0,0,0,.15),rgba(0,0,0,.4)),url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=600&q=70') center/cover;display:flex;justify-content:center;align-items:center;z-index:20000;padding:12px}
-.startBox{background:#fff;border-radius:20px;padding:20px 14px;width:95%;max-width:340px;text-align:center;border:2px solid #ff9800;box-shadow:0 10px 25px rgba(0,0,0,.4)}
-.playBtn{width:100%;background:linear-gradient(90deg,#ff9800,#ff4081);color:#fff;border:none;padding:14px;border-radius:30px;font-weight:900;font-size:17px;margin:14px 0;cursor:pointer}
+body{margin:0;background:#87CEEB;min-height:100vh;display:flex;justify-content:center;align-items:center}
+#startScreen{position:fixed;inset:0;background:url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800') center/cover;display:flex;justify-content:center;align-items:center;z-index:999}
+.box{background:#fff;border-radius:20px;padding:20px;width:90%;max-width:340px;text-align:center;border:3px solid #ff9800;box-shadow:0 8px 20px rgba(0,0,0,.4)}
+.playBtn{width:100%;background:linear-gradient(90deg,#ff9800,#ff4081);color:#fff;border:none;padding:14px;border-radius:30px;font-weight:900;font-size:18px;margin-top:12px;cursor:pointer}
+#menuScreen{display:none;position:fixed;inset:0;background:url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800') center/cover;justify-content:center;align-items:center;z-index:998;padding:10px}
+.menuBox{background:#fff;border-radius:16px;padding:12px;width:100%;max-width:400px;max-height:90vh;overflow-y:auto;text-align:center;border:2px solid #ff9800}
 .levels{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:10px 0}
-.lvl{border:2px solid #ff9800;background:#fff8e1;border-radius:12px;padding:10px 4px;cursor:pointer;font-weight:bold;font-size:12px;min-height:72px;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative}
-.lvl.locked{background:#e0e0e0!important;border-color:#999!important;opacity:.65;pointer-events:none}
-.lvl.locked::after{content:'🔒';position:absolute;inset:0;background:rgba(0,0,0,.55);color:#fff;font-size:14px;display:flex;align-items:center;justify-content:center;border-radius:10px;font-weight:900}
-.lvl.done{background:#c8e6c9!important;border-color:#4caf50!important}
-.grid{display:grid;grid-template-columns:repeat(6,1fr);gap:4px;background:#fff3e0;padding:6px;border-radius:10px;margin:6px 0}
-.cell{aspect-ratio:1;background:#fff;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:20px;border:1.5px solid #ffcc02;cursor:pointer}
-.cell.sel{border-color:#ff4081!important;background:#fce4ec!important;transform:scale(1.05)}
-.cell.done{background:#c8e6c9!important;opacity:.3;pointer-events:none}
-.cell.wrong{animation:shake.25s;background:#ffcdd2!important}
-@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-4px)}75%{transform:translateX(4px)}}
-#fall{position:relative;width:100%;height:50vh;max-height:380px;background:#fffde7;border-radius:10px;overflow:hidden;margin:6px 0;display:none;border:2px solid #ff9800}
-.bubble{position:absolute;background:#fff;border-radius:40px;padding:10px 16px;border:2px solid #ff4081;font-weight:900;cursor:pointer;box-shadow:0 4px 10px rgba(0,0,0,.3);font-size:17px;z-index:5;white-space:nowrap}
-.timerBar{width:100%;height:8px;background:#eee;border-radius:10px;overflow:hidden;margin:6px 0}
-.timerFill{height:100%;width:100%;background:linear-gradient(90deg,#4caf50,#ff9800)}
-#autoAd{position:fixed;inset:0;background:rgba(0,0,0,.92);display:none;justify-content:center;align-items:center;z-index:99999;padding:10px}
-#autoAd.show{display:flex!important}
-.autoBox{background:#fff;border-radius:16px;padding:14px;width:95%;max-width:320px;text-align:center}
-#sideAd{position:fixed;bottom:0;left:0;width:100%;background:#fff;border-top:2px solid #ff9800;padding:8px 10px;display:flex;justify-content:space-between;align-items:center;z-index:1000;height:56px}
-#winPopup{position:fixed;inset:0;background:rgba(0,0,0,.75);display:none;justify-content:center;align-items:center;z-index:60000;padding:10px}
-#winPopup.show{display:flex!important}
-.winBox{background:#fff;border-radius:16px;padding:16px;width:95%;max-width:320px;text-align:center;border:2px solid #4caf50}
-.btn{width:100%;background:#4caf50;color:#fff;border:none;padding:10px;border-radius:30px;font-weight:bold;margin-top:6px;font-size:13px;cursor:pointer}
+.lvl{border:2px solid #ff9800;background:#fff8e1;border-radius:12px;padding:10px 2px;font-weight:bold;font-size:12px;min-height:75px;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.lvl.locked{background:#ccc;opacity:.6;pointer-events:none}
+#gameScreen{display:none;position:fixed;inset:0;background:#fff;z-index:997;padding:8px;overflow-y:auto;align-items:flex-start;justify-content:center}
+.gameBox{background:#fff;width:100%;max-width:420px;margin:0 auto;text-align:center;padding-bottom:70px}
+.grid{display:grid;grid-template-columns:repeat(6,1fr);gap:5px;background:#fff3e0;padding:6px;border-radius:10px;margin:8px 0}
+.cell{aspect-ratio:1;background:#fff;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:22px;border:2px solid #ffcc02;cursor:pointer}
+.cell.sel{border-color:#ff4081;background:#fce4ec;transform:scale(1.05)}
+.cell.done{background:#c8e6c9;opacity:.3;pointer-events:none}
+#fall{position:relative;width:100%;height:400px;background:#fffde7;border-radius:10px;overflow:hidden;margin:8px 0;display:none;border:2px solid #ff9800}
+.bubble{position:absolute;background:#fff;border-radius:30px;padding:10px 14px;border:2px solid #ff4081;font-weight:900;cursor:pointer;box-shadow:0 3px 8px rgba(0,0,0,.3);font-size:16px;white-space:nowrap}
+#win{position:fixed;inset:0;background:rgba(0,0,0,.7);display:none;justify-content:center;align-items:center;z-index:1000;padding:15px}
+.winBox{background:#fff;border-radius:16px;padding:20px;width:90%;max-width:300px;text-align:center;border:3px solid #4caf50}
+.btn{width:100%;background:#4caf50;color:#fff;border:none;padding:12px;border-radius:30px;font-weight:bold;margin-top:8px;cursor:pointer}
 .btn2{background:linear-gradient(90deg,#ff9800,#ff4081)}
-.btn3{background:#eee;color:#333}
 </style>
 </head>
 <body>
-<div id="startScreen"><div class="startBox"><div style="font-size:50px">🍬🌾</div><div style="font-size:28px;font-weight:900;color:#e65100">ਪੰਜਾਬੀ ਟਾਫੀ</div><div style="font-size:14px;font-weight:bold;color:#ff4081">Punjabi Toffee Crush</div><div style="font-size:11px;color:#795548;background:#fff8e1;padding:8px 10px;border-radius:10px;margin:10px 0">🌾 ਸਰਸੋਂ ਦੇ ਖੇਤਾਂ ਵਾਲਾ<br>ਦੇਸੀ ਪੰਜਾਬੀ ਗੇਮ 🌾</div><button class="playBtn" onclick="startGameEntry()">▶️ ਗੇਮ ਸ਼ੁਰੂ ਕਰੋ ਜੀ</button></div></div>
-<div id="sideAd"><div style="display:flex;align-items:center;gap:8px"><div style="width:32px;height:32px;background:linear-gradient(45deg,#ff9800,#ff4081);border-radius:8px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:bold">Ad</div><div style="text-align:left"><b style="font-size:12px">Punjab Games</b><br><small style="font-size:8px">Sponsored • Free</small></div></div><button onclick="onAdClick()" style="background:#2196f3;color:#fff;border:none;padding:6px 14px;border-radius:16px;font-weight:bold">Play</button></div>
-<div id="autoAd"><div class="autoBox"><div style="width:100%;height:6px;background:#eee;border-radius:10px;overflow:hidden"><div id="progress" style="width:0%;height:100%;background:linear-gradient(90deg,#ff9800,#ff4081)"></div></div><p style="font-size:8px;color:#999;margin:6px 0">ADVERTISEMENT</p><div style="background:#fff8e1;border:1.5px solid #ff9800;border-radius:10px;padding:10px;margin:8px 0"><b>Punjab Ludo Pro</b><br><small>5 Lakh+ Downloads • Free</small><div style="background:linear-gradient(45deg,#ffe0b2,#ffcc80);height:70px;border-radius:8px;margin:8px 0;display:flex;align-items:center;justify-content:center;font-size:28px">🎲 🏆</div></div><p id="countText">Next Level in 3s...</p><p style="font-weight:bold;color:#4caf50">✨ <span id="adTarget">Level</span> Complete! <span id="sec">3s</span></p></div></div>
-<div id="winPopup"><div class="winBox"><div style="font-size:36px">🎉🏆</div><h2 id="winTitle" style="color:#4caf50">Level Complete!</h2><p id="winMsg" style="font-size:11px;margin:6px 0;color:#666"></p><div style="background:#e8f5e9;border-radius:8px;padding:6px;margin:8px 0;font-size:11px">Score: <b id="winScore"></b></div><button class="btn btn2" onclick="goNextLevel()">▶️ ਅਗਲਾ ਲੈਵਲ</button><button class="btn" onclick="replayLevel()">🔄 ਦੁਬਾਰਾ ਖੇਡੋ</button><button class="btn btn3" onclick="goMenu()">🏠 ਮੀਨੂ</button></div></div>
-<div class="card" id="menu" style="display:none"><h2 style="color:#e65100">🌾 ਪੰਜਾਬੀ ਟਾਫੀ</h2><p style="font-size:10px;color:#666">ਲੈਵਲ ਚੁਣੋ ਜੀ</p><div class="levels" id="lvMenu"></div><div style="display:flex;gap:6px;margin-top:8px"><button onclick="showStart()" style="flex:1;background:#eee;border:none;padding:6px;border-radius:16px">⬅️ Start</button><button onclick="resetProgress()" style="flex:1;background:#ffcdd2;border:none;padding:6px;border-radius:16px">🔓 Reset</button></div></div>
-<div class="card" id="game" style="display:none"><div style="display:flex;justify-content:space-between;font-weight:bold"><button onclick="showMenuScreen()" style="border:none;background:#eee;padding:4px 10px;border-radius:16px">⬅️ ਮੀਨੂ</button><span id="lvName"></span><span id="sc" style="color:#e91e63"></span></div><div class="timerBar"><div id="timeFill" class="timerFill"></div></div><div style="display:flex;justify-content:space-between;font-size:10px;font-weight:bold"><span id="timerText">90s</span><span id="targetText"></span></div><p id="hint" style="font-size:11px;margin:6px 0;color:#e91e63;font-weight:bold"></p><div class="grid" id="grid"></div><div id="fall"></div><button class="btn btn3" onclick="start()">🔄 Restart</button></div>
+<div id="startScreen">
+<div class="box">
+<div style="font-size:50px">🍬🌾</div>
+<div style="font-size:28px;font-weight:900;color:#e65100">ਪੰਜਾਬੀ ਟਾਫੀ</div>
+<div style="font-size:14px;color:#ff4081;font-weight:bold">Punjabi Toffee Crush</div>
+<div style="font-size:11px;background:#fff8e1;padding:8px;border-radius:10px;margin:10px 0">🌾 ਸਰਸੋਂ ਦੇ ਖੇਤਾਂ ਵਾਲਾ<br>ਦੇਸੀ ਪੰਜਾਬੀ ਗੇਮ 🌾</div>
+<button class="playBtn" onclick="goMenu()">▶️ ਗੇਮ ਸ਼ੁਰੂ ਕਰੋ ਜੀ</button>
+</div>
+</div>
+<div id="menuScreen">
+<div class="menuBox">
+<h2 style="color:#e65100">🌾 ਪੰਜਾਬੀ ਟਾਫੀ</h2>
+<p style="font-size:11px;color:#666">ਲੈਵਲ ਚੁਣੋ ਜੀ - Serial Wise</p>
+<div class="levels" id="lvList"></div>
+<button onclick="resetGame()" style="background:#ffcdd2;border:none;padding:6px 12px;border-radius:15px;font-size:10px;margin-top:6px">🔓 Reset All</button>
+</div>
+</div>
+<div id="gameScreen">
+<div class="gameBox">
+<div style="display:flex;justify-content:space-between;font-weight:bold;font-size:13px;padding:6px 0"><button onclick="goMenu()" style="border:none;background:#eee;padding:5px 12px;border-radius:15px">⬅️ ਮੀਨੂ</button><span id="lvName"></span><span id="score" style="color:#e91e63"></span></div>
+<p id="hint" style="font-size:12px;color:#e91e63;font-weight:bold;margin:6px 0"></p>
+<div class="grid" id="grid"></div>
+<div id="fall"></div>
+</div>
+</div>
+<div id="win">
+<div class="winBox">
+<div style="font-size:40px">🎉🏆</div>
+<h2 id="winTitle" style="color:#4caf50;font-size:18px">ਵਾਹ ਜੀ ਵਾਹ!</h2>
+<p id="winMsg" style="font-size:12px;margin:8px 0"></p>
+<p style="background:#e8f5e9;padding:6px;border-radius:8px;font-size:12px">Score: <b id="winScore"></b></p>
+<button class="btn btn2" onclick="nextLevel()">▶️ ਅਗਲਾ ਲੈਵਲ</button>
+<button class="btn" onclick="replay()">🔄 ਦੁਬਾਰਾ ਖੇਡੋ</button>
+<button class="btn" style="background:#eee;color:#333" onclick="goMenu()">🏠 ਮੀਨੂ</button>
+</div>
+</div>
 <script>
-const LEVELS=[
-{name:"ਲੈਵਲ 1",type:"grid",target:"🍪",punjabi:"ਕੂਕੀ",items:["🍪","🧁","🍫","🍩"],time:90,need:36,hint:"3 ਕੂਕੀ ਚੁਣੋ ਜੀ! 🍪🍪🍪"},
-{name:"ਲੈਵਲ 2",type:"fall",target:"ਊੜਾ",punjabi:"ਊੜਾ",items:["ਊੜਾ","ਪਿੰਡ","ਖੇਡ","ਗੁੱਡੀ"],time:90,need:12,hint:"ਊੜਾ ਫੜੋ ਜੀ! 🍬"},
-{name:"ਲੈਵਲ 3",type:"grid",target:"🍎",punjabi:"ਸੇਬ",items:["🍎","🍓","🍇","🍊"],time:90,need:36,hint:"3 ਸੇਬ ਚੁਣੋ ਜੀ! 🍎🍎🍎"},
-{name:"ਲੈਵਲ 4",type:"fall",target:"ਅਨਾਰ",punjabi:"ਅਨਾਰ",items:["ਅਨਾਰ","ਅੰਬ","ਅੰਗੂਰ"],time:90,need:12,hint:"ਅਨਾਰ ਫੜੋ ਜੀ! 🍬"},
-{name:"ਲੈਵਲ 5",type:"grid",target:"🍦",punjabi:"ਆਈਸ ਕਰੀਮ",items:["🍦","🧁","🍪"],time:90,need:36,hint:"3 ਆਈਸ ਕਰੀਮ ਚੁਣੋ ਜੀ! 🍦🍦🍦"},
-{name:"ਲੈਵਲ 6",type:"fall",target:"ਮਿੱਟੀ",punjabi:"ਮਿੱਟੀ",items:["ਮਿੱਟੀ","ਪਾਣੀ","ਬੋਲੀ"],time:90,need:12,hint:"ਮਿੱਟੀ ਫੜੋ ਜੀ! 🍬"}
+var LEVELS=[
+{name:"ਲੈਵਲ 1",type:"grid",target:"🍪",punjabi:"ਕੂਕੀ",items:["🍪","🧁","🍫","🍩"],need:12,hint:"3 ਕੂਕੀ ਚੁਣੋ ਜੀ! 🍪🍪🍪"},
+{name:"ਲੈਵਲ 2",type:"fall",target:"ਊੜਾ",punjabi:"ਊੜਾ",items:["ਊੜਾ","ਪਿੰਡ","ਖੇਡ"],need:10,hint:"ਊੜਾ ਫੜੋ ਜੀ! 🍬 ਊੜਾ"},
+{name:"ਲੈਵਲ 3",type:"grid",target:"🍎",punjabi:"ਸੇਬ",items:["🍎","🍓","🍇","🍊"],need:12,hint:"3 ਸੇਬ ਚੁਣੋ ਜੀ! 🍎🍎🍎"},
+{name:"ਲੈਵਲ 4",type:"fall",target:"ਅਨਾਰ",punjabi:"ਅਨਾਰ",items:["ਅਨਾਰ","ਅੰਬ","ਅੰਗੂਰ"],need:10,hint:"ਅਨਾਰ ਫੜੋ ਜੀ! 🍬 ਅਨਾਰ"},
+{name:"ਲੈਵਲ 5",type:"grid",target:"🍦",punjabi:"ਆਈਸ ਕਰੀਮ",items:["🍦","🧁","🍪"],need:12,hint:"3 ਆਈਸ ਕਰੀਮ ਚੁਣੋ ਜੀ! 🍦🍦🍦"},
+{name:"ਲੈਵਲ 6",type:"fall",target:"ਮਿੱਟੀ",punjabi:"ਮਿੱਟੀ",items:["ਮਿੱਟੀ","ਪਾਣੀ","ਬੋਲੀ"],need:10,hint:"ਮਿੱਟੀ ਫੜੋ ਜੀ! 🍬 ਮਿੱਟੀ"}
 ];
-let cur=0,board=[],score=0,sInt=null,fInt=null,tInt=null,sel=[],secret=0,audioCtx=null;
-function getCtx(){if(!audioCtx){audioCtx=new(window.AudioContext||window.webkitAudioContext)();}if(audioCtx.state==='suspended')audioCtx.resume();return audioCtx;}
-function playTone(f,d,t,v){try{let c=getCtx();let o=c.createOscillator();let g=c.createGain();o.type=t||'sine';o.frequency.value=f;g.gain.value=v||0.3;o.connect(g);g.connect(c.destination);o.start();g.gain.exponentialRampToValueAtTime(0.0001,c.currentTime+d);setTimeout(()=>{try{o.stop()}catch(e){}},d*1000+150);}catch(e){}}
-function playClick(){playTone(650,0.12,'sine',0.3);}function playSelect(){playTone(850,0.1,'sine',0.28);}function playMatch(){playTone(900,0.15,'sine',0.35);setTimeout(()=>playTone(1200,0.18,'sine',0.35),110);}function playWrong(){playTone(180,0.32,'sawtooth',0.3);}function playWin(){playTone(523,0.16,'sine',0.35);setTimeout(()=>playTone(659,0.16,'sine',0.35),130);setTimeout(()=>playTone(784,0.22,'sine',0.4),260);setTimeout(()=>playTone(1046,0.35,'sine',0.4),440);}
-function speak(t){try{speechSynthesis.cancel();let u=new SpeechSynthesisUtterance(t);u.lang="pa-IN";u.rate=0.72;let vs=speechSynthesis.getVoices();let v=vs.find(x=>x.lang==="pa-IN")||vs[0];if(v)u.voice=v;speechSynthesis.speak(u);}catch(e){}}
-function secretAdd(a){secret+=a;playClick();}function onAdClick(){playClick();secretAdd(3);}
-function getUnlocked(){return parseInt(localStorage.getItem('punjabi_unlocked')||'1');}
-function setUnlocked(n){localStorage.setItem('punjabi_unlocked',n);renderMenu();}
-function resetProgress(){localStorage.setItem('punjabi_unlocked','1');renderMenu();playClick();}
-function renderMenu(){let el=document.getElementById("lvMenu");el.innerHTML="";let un=getUnlocked();LEVELS.forEach((lv,i)=>{let d=document.createElement("div");d.className="lvl";if(i+1>un)d.classList.add("locked");if(i+1<un)d.classList.add("done");d.innerHTML="<b>"+lv.name+"</b><br><span style='font-size:20px'>"+lv.target+"</span><br><small style='font-size:9px'>"+lv.punjabi+"</small>"+(i+1<un?"<br>✅":"")+(i+1==un?"<br>▶️":"");d.onclick=()=>{if(i+1>un){playWrong();speak("ਲੌਕ ਹੈ ਜੀ");return;}playClick();cur=i;document.getElementById("menu").style.display="none";document.getElementById("game").style.display="block";start();};el.appendChild(d);});}
-function startGameEntry(){try{getCtx();}catch(e){}playClick();document.getElementById("startScreen").style.display="none";document.getElementById("menu").style.display="block";renderMenu();setTimeout(()=>{speak("ਸਤ ਸ੍ਰੀ ਅਕਾਲ ਜੀ");},200);}
-function showStart(){playClick();document.getElementById("menu").style.display="none";document.getElementById("startScreen").style.display="flex";}
-function showMenuScreen(){playClick();document.getElementById("game").style.display="none";document.getElementById("menu").style.display="block";renderMenu();clearInterval(sInt);clearInterval(fInt);clearInterval(tInt);}
-function replayLevel(){playClick();document.getElementById("winPopup").classList.remove("show");start();}
-function goMenu(){playClick();document.getElementById("winPopup").classList.remove("show");document.getElementById("game").style.display="none";document.getElementById("menu").style.display="block";renderMenu();}
-function goNextLevel(){playClick();document.getElementById("winPopup").classList.remove("show");showAdAfterWin();}
-function showWinPopup(){let lv=LEVELS[cur];document.getElementById("winTitle").innerText=lv.name+" ਪੂਰਾ!";document.getElementById("winMsg").innerText=lv.punjabi+" ਪੂਰਾ ਹੋ ਗਿਆ ਜੀ, ਸ਼ਾਬਾਸ਼!";document.getElementById("winScore").innerText=score+"/"+lv.need;document.getElementById("winPopup").classList.add("show");playWin();setTimeout(()=>{speak(lv.punjabi+" ਪੂਰਾ ਹੋ ਗਿਆ ਜੀ");},100);let un=getUnlocked();if(cur+1>=un && cur+1<LEVELS.length){setUnlocked(cur+2);}if(cur+1==LEVELS.length){setUnlocked(LEVELS.length+1);}}
-function showAdAfterWin(){clearInterval(sInt);clearInterval(fInt);clearInterval(tInt);let lv=LEVELS[cur];document.getElementById("adTarget").innerText=lv.punjabi+" "+lv.name;document.getElementById("autoAd").classList.add("show");let p=0;let inter=setInterval(()=>{p+=4;p=Math.min(p,100);document.getElementById("progress").style.width=p+"%";document.getElementById("sec").innerText=Math.ceil((100-p)/30)+"s";document.getElementById("countText").innerText="Next Level in "+Math.ceil((100-p)/30)+"s";if(p>=100){clearInterval(inter);secretAdd(5);document.getElementById("autoAd").classList.remove("show");if(cur<LEVELS.length-1){cur++;start();}else{goMenu();}},70);}
-function startTimer(s){let l=s;clearInterval(tInt);document.getElementById("timeFill").style.width="100%";document.getElementById("timerText").innerText=l+"s";tInt=setInterval(()=>{l--;document.getElementById("timerText").innerText=l+"s";document.getElementById("timeFill").style.width=(l/s*100)+"%";if(l<=0){clearInterval(tInt);start();}},1000);}
-function start(){let lv=LEVELS[cur];document.getElementById("lvName").innerText=lv.name;document.getElementById("hint").innerText=lv.hint;document.getElementById("targetText").innerText="🎯 "+lv.punjabi+" - "+lv.need;score=0;sel=[];document.getElementById("sc").innerText="0/"+lv.need;clearInterval(sInt);clearInterval(fInt);clearInterval(tInt);document.getElementById("fall").innerHTML="";document.getElementById("grid").style.display=lv.type=="grid"?"grid":"none";document.getElementById("fall").style.display=lv.type=="fall"?"block":"none";startTimer(lv.time);if(lv.type=="grid")initGrid(lv);else initFall(lv);}
-function initGrid(lv){board=[];let g=document.getElementById("grid");g.innerHTML="";sel=[];let pool=[];let counts=[];if(lv.items.length==4)counts=[12,12,6,6];else if(lv.items.length==3)counts=[12,12,12];else counts=[18,18];let sum=counts.reduce((a,b)=>a+b,0);if(sum!=36)counts[0]+=36-sum;counts.forEach((cnt,idx)=>{let t=lv.items[idx];for(let k=0;k<cnt;k++)pool.push(t);});pool.sort(()=>Math.random()-0.5);board=[...pool];pool.forEach((it,i)=>{let c=document.createElement("div");c.className="cell";c.innerText=it;c.onclick=()=>{if(c.classList.contains("done")||c.classList.contains("sel"))return;playSelect();c.classList.add("sel");sel.push(i);if(sel.length===3){let v1=board[sel[0]],v2=board[sel[1]],v3=board[sel[2]];let cells=document.querySelectorAll(".cell");if(v1===v2&&v2===v3){sel.forEach(idx=>{cells[idx].innerText="🍬";cells[idx].classList.remove("sel");cells[idx].classList.add("done");});score+=3;document.getElementById("sc").innerText=score+"/"+lv.need;playMatch();sel=[];if(score>=lv.need){setTimeout(()=>showWinPopup(),350);}}else{speak("ਗਲਤ ਹੈ");playWrong();let tmp=[...sel];setTimeout(()=>{tmp.forEach(idx=>{cells[idx].classList.remove("sel");cells[idx].classList.add("wrong");});setTimeout(()=>{tmp.forEach(idx=>cells[idx].classList.remove("wrong"));sel=[];},350);},200);}}};g.appendChild(c);});}
-function initFall(lv){let area=document.getElementById("fall");area.innerHTML="";function spawn(){let d=document.createElement("div");d.className="bubble";let isT=Math.random()<0.62;let w=isT?lv.target:lv.items[Math.floor(Math.random()*lv.items.length)];d.textContent="🍬 "+w;d.style.left=Math.floor(Math.random()*60+5)+"%";d.style.top="-10px";d.onclick=()=>{if(w===lv.target){score++;document.getElementById("sc").innerText=score+"/"+lv.need;playMatch();speak(w);d.remove();if(score>=lv.need){setTimeout(()=>showWinPopup(),150);}}else{speak("ਗਲਤ ਹੈ");playWrong();d.remove();}};area.appendChild(d);}for(let i=0;i<4;i++){setTimeout(spawn,i*180);}sInt=setInterval(spawn,700);fInt=setInterval(()=>{let bubbles=document.querySelectorAll("#fall.bubble");bubbles.forEach(el=>{let t=parseFloat(el.style.top)||0;t+=2.6;el.style.top=t+"px";if(t>420)el.remove();});},30);}
-renderMenu();
+var cur=0,score=0,sel=[],board=[],sInt=null,fInt=null;
+function getUnlocked(){return parseInt(localStorage.getItem('punjabi_unlock_v25')||'1');}
+function setUnlocked(n){localStorage.setItem('punjabi_unlock_v25',n);showLevels();}
+function resetGame(){localStorage.setItem('punjabi_unlock_v25','1');showLevels();}
+function goMenu(){
+clearInterval(sInt);clearInterval(fInt);
+document.getElementById('startScreen').style.display='none';
+document.getElementById('gameScreen').style.display='none';
+document.getElementById('win').style.display='none';
+document.getElementById('menuScreen').style.display='flex';
+showLevels();
+}
+function showLevels(){
+var el=document.getElementById('lvList');el.innerHTML='';
+var un=getUnlocked();
+for(var i=0;i<LEVELS.length;i++){
+var lv=LEVELS[i];
+var d=document.createElement('div');d.className='lvl';
+if(i+1>un)d.className+=' locked';
+d.innerHTML='<b>'+lv.name+'</b><br><span style="font-size:20px">'+lv.target+'</span><br><small style="font-size:9px">'+lv.punjabi+'</small>'+(i+1<un?'<br>✅':'')+(i+1==un?'<br>▶️':'');
+(function(idx){d.onclick=function(){if(idx+1>getUnlocked())return;cur=idx;startGame();};})(i);
+el.appendChild(d);
+}
+}
+function startGame(){
+clearInterval(sInt);clearInterval(fInt);
+score=0;sel=[];board=[];
+document.getElementById('menuScreen').style.display='none';
+document.getElementById('gameScreen').style.display='flex';
+document.getElementById('win').style.display='none';
+var lv=LEVELS[cur];
+document.getElementById('lvName').innerText=lv.name;
+document.getElementById('score').innerText='0/'+lv.need;
+document.getElementById('hint').innerText=lv.hint;
+document.getElementById('grid').style.display=lv.type=='grid'?'grid':'none';
+document.getElementById('fall').style.display=lv.type=='fall'?'block':'none';
+document.getElementById('fall').innerHTML='';
+if(lv.type=='grid')initGrid(lv);else initFall(lv);
+}
+function initGrid(lv){
+var g=document.getElementById('grid');g.innerHTML='';sel=[];
+var pool=[];
+for(var j=0;j<3;j++){for(var k=0;k<12;k++)pool.push(lv.items[j%lv.items.length]);}
+pool.sort(function(){return Math.random()-0.5;});
+board=pool.slice();
+for(var i=0;i<pool.length;i++){
+var c=document.createElement('div');c.className='cell';c.innerText=pool[i];
+(function(idx){
+c.onclick=function(){
+if(this.classList.contains('done')||this.classList.contains('sel'))return;
+this.classList.add('sel');sel.push(idx);
+if(sel.length==3){
+var v1=board[sel[0]],v2=board[sel[1]],v3=board[sel[2]];
+var cells=document.querySelectorAll('.cell');
+if(v1==v2&&v2==v3){
+for(var s=0;s<sel.length;s++){cells[sel[s]].innerText='🍬';cells[sel[s]].classList.remove('sel');cells[sel[s]].classList.add('done');}
+score++;document.getElementById('score').innerText=score+'/'+lv.need;
+sel=[];
+if(score>=lv.need){setTimeout(showWin,300);}
+}else{
+var tmp=sel.slice();
+setTimeout(function(){for(var t=0;t<tmp.length;t++){cells[tmp[t]].classList.remove('sel');}},400);
+sel=[];
+}
+}
+};
+})(i);
+g.appendChild(c);
+}
+}
+function initFall(lv){
+var area=document.getElementById('fall');area.innerHTML='';
+function spawn(){
+var d=document.createElement('div');d.className='bubble';
+var isT=Math.random()<0.6;
+var w=isT?lv.target:lv.items[Math.floor(Math.random()*lv.items.length)];
+d.textContent='🍬 '+w;
+d.style.left=Math.floor(Math.random()*60+5)+'%';
+d.style.top='-20px';
+d.onclick=function(){
+if(w==lv.target){score++;document.getElementById('score').innerText=score+'/'+lv.need;this.remove();if(score>=lv.need)setTimeout(showWin,200);}else{this.remove();}
+};
+area.appendChild(d);
+}
+for(var i=0;i<3;i++)setTimeout(spawn,i*300);
+sInt=setInterval(spawn,900);
+fInt=setInterval(function(){
+var bubbles=document.querySelectorAll('#fall.bubble');
+for(var b=0;b<bubbles.length;b++){
+var el=bubbles[b];
+var t=parseFloat(el.style.top)||0;
+t+=2;
+el.style.top=t+'px';
+if(t>380)el.remove();
+}
+},40);
+}
+function showWin(){
+clearInterval(sInt);clearInterval(fInt);
+var lv=LEVELS[cur];
+document.getElementById('winTitle').innerText=lv.name+' ਪੂਰਾ!';
+document.getElementById('winMsg').innerText=lv.punjabi+' ਪੂਰਾ ਹੋ ਗਿਆ ਜੀ, ਸ਼ਾਬਾਸ਼!';
+document.getElementById('winScore').innerText=score+'/'+lv.need;
+document.getElementById('win').style.display='flex';
+var un=getUnlocked();
+if(cur+1>=un && cur+1<LEVELS.length){setUnlocked(cur+2);}
+}
+function nextLevel(){document.getElementById('win').style.display='none';if(cur<LEVELS.length-1){cur++;startGame();}else{goMenu();}}
+function replay(){document.getElementById('win').style.display='none';startGame();}
+showLevels();
 </script>
 </body>
 </html>
