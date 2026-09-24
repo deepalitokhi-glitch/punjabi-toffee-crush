@@ -7,75 +7,71 @@
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1905215538239803" crossorigin="anonymous"></script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
-body{background:linear-gradient(#87CEEB,#FFE4B5);min-height:100vh;padding-bottom:110px}
-.box{max-width:420px;margin:10px auto;background:#fff;border-radius:22px;padding:14px;border:4px solid #FF9800;box-shadow:0 8px 20px rgba(0,0,0,0.2)}
-.grid{display:grid;grid-template-columns:repeat(6,1fr);gap:7px;background:#FFF3E0;padding:10px;border-radius:16px;margin:10px 0;min-height:250px}
-.c{background:#fff;border-radius:12px;height:58px;display:flex;align-items:center;justify-content:center;font-size:32px;border:2.5px solid #FFCC02;cursor:pointer}
+body{background:#87CEEB;min-height:100vh;padding-bottom:110px}
+.box{max-width:420px;margin:15px auto;background:#fff;border-radius:22px;padding:16px;border:4px solid #FF9800;text-align:center}
+.first{padding:30px 16px}
+.first h1{font-size:42px;color:#FF6F00}
+.first p{color:#E91E63;font-weight:900;margin:10px 0}
+.btn{background:linear-gradient(#FF9800,#FF6F00);color:#fff;border:0;padding:14px 28px;border-radius:30px;font-weight:900;font-size:20px;width:100%;margin-top:12px;cursor:pointer}
+.grid{display:grid;grid-template-columns:repeat(6,1fr);gap:7px;background:#FFF3E0;padding:10px;border-radius:16px;margin:10px 0}
+.c{background:#fff;border-radius:12px;height:56px;display:flex;align-items:center;justify-content:center;font-size:30px;border:2.5px solid #FFCC02;cursor:pointer}
 .c.sel{border-color:#FF4081;background:#FCE4EC;transform:scale(0.9)}
-.c.ok{background:#4CAF50!important;border-color:#2E7D32!important;pointer-events:none}
+.c.ok{background:#4CAF50!important;color:#fff!important}
 .bar{width:100%;height:16px;background:#eee;border-radius:20px;overflow:hidden;margin:8px 0;border:2px solid #FF9800}
 .f{height:100%;background:#4CAF50;width:0%;transition:0.5s}
-.btn{background:linear-gradient(#FF9800,#FF6F00);color:#fff;border:0;padding:12px 24px;border-radius:30px;font-weight:900;width:100%;font-size:18px}
 #ad{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:4px solid #FF9800;height:100px;display:flex;align-items:center;justify-content:center;z-index:9999}
+.hidden{display:none}
 </style>
 </head>
 <body>
-<div class="box">
-<h1 style="text-align:center;color:#FF6F00;font-size:34px">ਪੰਜਾਬੀ ਟਾਫੀ</h1>
-<p style="text-align:center;color:#E91E63;font-weight:900">punjabi toffee crush game - V34</p>
-<div style="display:flex;justify-content:space-between;font-weight:900;margin-top:8px"><span id="lvl">ਲੈਵਲ 1</span><span id="sc" style="color:#E91E63">0/8</span></div>
-<div class="bar"><div id="pf" class="f"></div></div>
-<p style="text-align:center;color:#E91E63;font-weight:900" id="msg">3 same ਚੁਣੋ ਜੀ! 🍪🍪🍪</p>
-<div class="grid" id="g"></div>
-<button class="btn" onclick="nextLevel()">▶️ ਅਗਲਾ ਲੈਵਲ</button>
-</div>
 
-<div id="ad">
-<ins class="adsbygoogle" style="display:block;width:100%" data-ad-client="ca-pub-1905215538239803" data-ad-slot="1234567890" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<div class="box" id="firstPage">
+<div class="first">
+<h1>ਪੰਜਾਬੀ ਟਾਫੀ</h1>
+<p style="font-size:22px">🍪🍩🧁</p>
+<p style="font-size:18px">punjabi toffee crush game</p>
+<p style="font-size:14px;color:#555;margin:15px 0">3 same toffee chuno te level complete karo ji! Saare cookie khatam honge!</p>
+<button class="btn" onclick="startGame()">▶️ ਗੇਮ ਸ਼ੁਰੂ ਕਰੋ ਜੀ</button>
+<p style="font-size:12px;color:#999;margin-top:12px">V36 FINAL - First Page Wapas!</p>
+<div style="margin-top:15px">
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1905215538239803" data-ad-slot="1234567890" data-ad-format="auto" data-full-width-responsive="true"></ins>
 <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
 </div>
+</div>
+</div>
+
+<div class="box hidden" id="gamePage">
+<p style="color:#E91E63;font-weight:900">punjabi toffee crush game - V36</p>
+<div style="display:flex;justify-content:space-between;font-weight:900;margin-top:8px"><span id="lvl">ਲੈਵਲ 1</span><span id="sc" style="color:#E91E63">0/9</span></div>
+<div class="bar"><div id="pf" class="f"></div></div>
+<p style="color:#E91E63;font-weight:900" id="msg">3 same ਚੁਣੋ ਜੀ! 🍪🍪🍪</p>
+<div class="grid" id="g"></div>
+<button class="btn" onclick="showFirst()">⬅️ ਪਹਿਲਾ ਪੇਜ</button>
+</div>
+
+<div id="ad"><ins class="adsbygoogle" style="display:block;width:100%" data-ad-client="ca-pub-1905215538239803" data-ad-slot="1234567890" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
 
 <script>
-let level=1,sc=0,sel=[],bd=[];
-let actx;
-function getsound(){if(!actx)actx=new(window.AudioContext||window.webkitAudioContext)();return actx;}
-function play(f,d=0.2){try{let a=getsound();let o=a.createOscillator();let g=a.createGain();o.connect(g);g.connect(a.destination);o.frequency.value=f;g.gain.value=0.3;o.start();o.stop(a.currentTime+d);}catch(e){}}
-
+let level=1,sc=0,sel=[],bd=[],actx;
+function sd(f){try{if(!actx)actx=new(window.AudioContext||window.webkitAudioContext)();let o=actx.createOscillator(),g=actx.createGain();o.connect(g);g.connect(actx.destination);o.frequency.value=f;g.gain.value=0.25;o.start();o.stop(actx.currentTime+0.2);}catch(e){}}
+function showFirst(){document.getElementById('firstPage').classList.remove('hidden');document.getElementById('gamePage').classList.add('hidden');}
+function startGame(){document.getElementById('firstPage').classList.add('hidden');document.getElementById('gamePage').classList.remove('hidden');make();sd(800);}
 function make(){
 let G=document.getElementById('g');G.innerHTML='';sel=[];sc=0;
-document.getElementById('sc').innerText='0/8';
-document.getElementById('pf').style.width='0%';
+document.getElementById('sc').innerText='0/9';document.getElementById('pf').style.width='0%';
 document.getElementById('lvl').innerText='ਲੈਵਲ '+level;
-document.getElementById('msg').innerText='3 same ਚੁਣੋ ਜੀ! 🍪🍪🍪';
-// 8 of each = 24 cells = 8 matches - level 100% complete hoga
-let icons = level%2==1? ["🍪","🍩","🧁"] : ["🍪","🍩","🍦"];
-let p=[];
-for(let j=0;j<icons.length;j++){for(let i=0;i<8;i++)p.push(icons[j]);}
+let icons=["🍪","🍩","🧁"],p=[];
+for(let j=0;j<3;j++)for(let i=0;i<9;i++)p.push(icons[j]);
 p.sort(()=>Math.random()-0.5);bd=p.slice();
-for(let i=0;i<p.length;i++){
+for(let i=0;i<27;i++){
 let d=document.createElement('div');d.className='c';d.innerText=p[i];
 d.onclick=function(){
 if(this.classList.contains('ok')||this.classList.contains('sel'))return;
-play(600,0.15);this.classList.add('sel');sel.push(i);
+sd(600);this.classList.add('sel');sel.push(i);
 if(sel.length==3){
-let a=bd[sel[0]],b=bd[sel[1]],c2=bd[sel[2]];let all=document.querySelectorAll('.c');
-if(a==b&&b==c2){
-play(900,0.3);
-sel.forEach(s=>{all[s].innerText='✅';all[s].className='c ok';});
-sc++;document.getElementById('sc').innerText=sc+'/8';
-document.getElementById('pf').style.width=(sc/8*100)+'%';
-document.getElementById('msg').innerText='ਵਾਹ ਜੀ! ਸ਼ਾਬਾਸ਼! 👏';
-sel=[];
-if(sc>=8){
-play(1200,0.5);
-setTimeout(()=>{document.getElementById('msg').innerText='ਲੈਵਲ '+level+' ਪੂਰਾ! 🏆';alert('ਲੈਵਲ '+level+' Complete! 🏆\nਅਗਲਾ ਲੈਵਲ ਆ ਰਿਹਾ ਹੈ!');level++;make();},500);
-}else{setTimeout(()=>{document.getElementById('msg').innerText='3 same ਚੁਣੋ ਜੀ! 🍪🍪🍪';},800);}
-}else{
-play(200,0.4);document.getElementById('msg').innerText='ਗਲਤ ਜੀ! ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ 😊';
-let t=[...sel];setTimeout(()=>{t.forEach(s=>all[s].classList.remove('sel'));document.getElementById('msg').innerText='3 same ਚੁਣੋ ਜੀ! 🍪🍪🍪';},500);sel=[];
-}}};G.appendChild(d);}}
-function nextLevel(){level++;make();}
-make();
+let a=bd[sel[0]],b=bd[sel[1]],c2=bd[sel[2]],all=document.querySelectorAll('.c');
+if(a==b&&b==c2){sd(900);sel.forEach(s=>{all[s].innerText='✅';all[s].className='c ok';});sc++;document.getElementById('sc').innerText=sc+'/9';document.getElementById('pf').style.width=(sc/9*100)+'%';sel=[];if(sc>=9){sd(1200);setTimeout(()=>{alert('ਲੈਵਲ '+level+' Complete! 🏆');level++;make();},500);}}
+else{sd(200);let t=[...sel];setTimeout(()=>{t.forEach(s=>all[s].classList.remove('sel'));},400);sel=[];}}};G.appendChild(d);}}
 </script>
 </body>
 </html>
