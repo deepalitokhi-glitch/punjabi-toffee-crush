@@ -1,83 +1,58 @@
-var lv=LEVELS[cur];
-document.getElementById('lvName').innerText=lv.name;
-document.getElementById('score').innerText='0/'+lv.need;
-document.getElementById('hint').innerText=lv.hint;
-document.getElementById('grid').style.display=lv.type=='grid'?'grid':'none';
-document.getElementById('fall').style.display=lv.type=='fall'?'block':'none';
-document.getElementById('fall').innerHTML='';
-if(lv.type=='grid')initGrid(lv);else initFall(lv);
-}
-function initGrid(lv){
-var g=document.getElementById('grid');g.innerHTML='';sel=[];
-var pool=[];
-for(var j=0;j<3;j++){for(var k=0;k<12;k++)pool.push(lv.[j%lv.items.length]);}
-pool.sort(function(){return Math.random()-0.5;});
-board=pool.slice();
-for(var i=0;i<pool.length;i++){
-var c=document.createElement('div');c.className='cell';c.innerText=pool[i];
-(function(idx){
-c.onclick=function(){
-if(this.classList.contains('done')||this.classList.contains('sel'))return;
-this.classList.add('sel');sel.push(idx);
-if(sel.length==3){
-var v1=board[sel[0]],v2=board[sel[1]],v3=board[sel[2]];
-var cells=document.querySelectorAll('.cell');
-if(v1==v2&&v2==v3){
-for(var s=0;s<sel.length;s++){cells[sel[s]].innerText='🍬';cells[sel[s]].classList.remove('sel');cells[sel[s]].classList.add('done');}
-score++;document.getElementById('score').innerText=score+'/'+lv.need;
-sel=[];
-if(score>=lv.need){setTimeout(showWin,300);}
-}else{
-var tmp=sel.slice();
-setTimeout(function(){for(var t=0;t<tmp.length;t++){cells[tmp[t]].classList.remove('sel');}},400);
-sel=[];
-}
-}
-};
-})(i);
-g.appendChild(c);
-}
-}
-function initFall(lv){
-var area=document.getElementById('fall');area.innerHTML='';
-function spawn(){
-var d=document.createElement('div');d.className='bubble';
-var isT=Math.random()<0.6;
-var w=isT?lv.target:lv.items[Math.floor(Math.random()*lv.items.length)];
-d.textContent='🍬 '+w;
-d.style.left=Math.floor(Math.random()*60+5)+'%';
-d.style.top='-20px';
-d.onclick=function(){
-if(w==lv.target){score++;document.getElementById('score').innerText=score+'/'+lv.need;this.remove();if(score>=lv.need)setTimeout(showWin,200);}else{this.remove();}
-};
-area.appendChild(d);
-}
-for(var i=0;i<3;i++)setTimeout(spawn,i*300);
-sInt=setInterval(spawn,900);
-fInt=setInterval(function(){
-var bubbles=document.querySelectorAll('#fall.bubble');
-for(var b=0;b<bubbles.length;b++){
-var el=bubbles[b];
-var t=parseFloat(el.style.top)||0;
-t+=2;
-el.style.top=t+'px';
-if(t>380)el.remove();
-}
-},40);
-}
-function showWin(){
-clearInterval(sInt);clearInterval(fInt);
-var lv=LEVELS[cur];
-document.getElementById('winTitle').innerText=lv.name+' ਪੂਰਾ!';
-document.getElementById('winMsg').innerText=lv.punjabi+' ਪੂਰਾ ਹੋ ਗਿਆ ਜੀ, ਸ਼ਾਬਾਸ਼!';
-document.getElementById('winScore').innerText=score+'/'+lv.need;
-document.getElementById('win').style.display='flex';
-var un=getUnlocked();
-if(cur+1>=un && cur+1<LEVELS.length){setUnlocked(cur+2);}
-}
-function nextLevel(){document.getElementById('win').style.display='none';if(cur<LEVELS.length-1){cur++;startGame();}else{goMenu();}}
-function replay(){document.getElementById('win').style.display='none';startGame();}
-showLevels();
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Punjabi Toffee</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
+body{background:#FFD54F}
+#s1{position:fixed;inset:0;background:#87CEEB;display:flex;align-items:center;justify-content:center;z-index:100}
+.c{background:#fff;border-radius:20px;padding:20px;width:92%;max-width:340px;border:3px solid #FF9800;text-align:center}
+.b{width:100%;background:linear-gradient(90deg,#FF9800,#FF4081);color:#fff;border:none;padding:14px;border-radius:30px;font-weight:900;margin-top:10px}
+#s2{position:fixed;inset:0;background:#87CEEB;padding:10px 10px 70px 10px;display:none;overflow:auto;z-index:90}
+.w{background:#fff;border-radius:16px;padding:14px;max-width:400px;margin:10px auto;text-align:center;border:2px solid #FF9800}
+.lvBox{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:10px 0}
+.lv{border:2px solid #FF9800;background:#FFF8E1;border-radius:12px;padding:10px 4px;min-height:78px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-weight:bold}
+.lv.l{background:#ccc;opacity:.5}
+#s3{position:fixed;inset:0;background:#FFF8E1;display:none;overflow:auto;padding:8px 8px 70px 8px;z-index:80}
+.g{max-width:420px;margin:0 auto;background:#fff;border-radius:14px;padding:10px;border:2px solid #FF9800}
+.grid{display:grid;grid-template-columns:repeat(6,1fr);gap:5px;background:#FFF3E0;padding:6px;border-radius:10px;margin:6px 0}
+.cell{background:#fff;border-radius:8px;height:50px;display:flex;align-items:center;justify-content:center;font-size:24px;border:2px solid #FFCC02}
+.cell.s{border-color:#FF4081;background:#FCE4EC;transform:scale(1.05)}
+.cell.d{background:#C8E6C9;opacity:.4}
+#fall{position:relative;width:100%;height:400px;background:#FFFDE7;border:2px solid #FF9800;border-radius:12px;display:none;overflow:hidden;margin:6px 0}
+.bu{position:absolute;background:#fff;border-radius:25px;padding:10px 16px;border:2px solid #FF4081;font-weight:900;box-shadow:0 4px 10px rgba(0,0,0,.2);font-size:15px;white-space:nowrap}
+#target{width:100%;background:#FF4081;color:#fff;text-align:center;padding:8px;border-radius:10px;font-weight:900;margin:6px 0;font-size:16px;display:none}
+.bar{width:100%;height:8px;background:#eee;border-radius:10px;overflow:hidden;margin:6px 0}
+.fill{height:100%;background:#4CAF50;width:0%;transition:.3s}
+#win{position:fixed;inset:0;background:rgba(0,0,0,.75);display:none;align-items:center;justify-content:center;z-index:500;padding:15px}
+.winBox{background:#fff;border-radius:16px;padding:20px;width:92%;max-width:300px;border:3px solid #4CAF50;text-align:center}
+#ad{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:3px solid #FF9800;padding:8px 10px;display:flex;justify-content:space-between;align-items:center;z-index:200;height:60px}
+</style>
+</head>
+<body>
+<div id="s1"><div class="c"><div style="font-size:44px">🍬🌾</div><div style="font-size:26px;font-weight:900;color:#E65100">ਪੰਜਾਬੀ ਟਾਫੀ</div><div style="font-size:12px;color:#FF4081;font-weight:bold">V31 FINAL</div><div style="background:#FFF8E1;padding:8px;border-radius:8px;margin:8px 0;font-size:11px">Sound Ad Word Fixed</div><button class="b" onclick="openMenu()">▶️ ਗੇਮ ਸ਼ੁਰੂ ਕਰੋ ਜੀ</button></div></div>
+<div id="s2"><div class="w"><h2 style="color:#E65100">🌾 ਪੰਜਾਬੀ ਟਾਫੀ</h2><p style="font-size:11px;color:#666">ਲੈਵਲ ਚੁਣੋ ਜੀ</p><div class="lvBox" id="lv"></div><div style="display:flex;gap:8px;margin-top:8px"><button onclick="document.getElementById('s1').style.display='flex';document.getElementById('s2').style.display='none'" style="flex:1;background:#eee;border:none;padding:8px;border-radius:20px">Back</button><button onclick="localStorage.clear();location.reload()" style="flex:1;background:#FFCDD2;border:none;padding:8px;border-radius:20px">Reset</button></div></div></div>
+<div id="s3"><div class="g"><div style="display:flex;justify-content:space-between;font-weight:bold;font-size:12px"><button onclick="goMenu()" style="border:none;background:#eee;padding:5px 10px;border-radius:15px">ਮੀਨੂ</button><span id="ln"></span><span id="sc" style="color:#E91E63"></span></div><div class="bar"><div id="pf" class="fill"></div></div><p id="hint" style="color:#E91E63;font-weight:bold;font-size:12px;text-align:center;margin:4px 0"></p><div class="grid" id="grid"></div><div id="target">ਫੜੋ: <span id="tgWord"></span></div><div id="fall"></div></div></div>
+<div id="win"><div class="winBox"><div style="font-size:42px">🏆</div><h2 id="wt" style="color:#4CAF50"></h2><p id="wm" style="font-size:12px;margin:6px 0"></p><p style="background:#E8F5E9;padding:6px;border-radius:8px">Score: <b id="ws"></b></p><button class="b" style="margin-top:10px" onclick="nextLv()">ਅਗਲਾ ਲੈਵਲ</button><button class="b" style="background:#4CAF50" onclick="replay()">ਦੁਬਾਰਾ</button><button class="b" style="background:#eee;color:#333" onclick="goMenuWin()">ਮੀਨੂ</button></div></div>
+<div id="ad"><div style="display:flex;align-items:center;gap:8px"><div style="width:36px;height:36px;background:linear-gradient(45deg,#FF9800,#FF4081);border-radius:10px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;font-size:12px">Ad</div><div><b style="font-size:12px">Punjab Ludo Pro</b><br><small style="font-size:9px">Sponsored</small></div></div><button onclick="beep(1000)" style="background:#2196F3;color:#fff;border:none;padding:8px 16px;border-radius:20px;font-weight:900;font-size:11px">Play</button></div>
+<script>
+var LVL=[{n:"ਲੈਵਲ 1",t:"grid",tg:"🍪",p:"ਕੂਕੀ",it:["🍪","🧁","🍩"],nd:8,h:"3 ਕੂਕੀ ਚੁਣੋ ਜੀ!"},{n:"ਲੈਵਲ 2",t:"fall",tg:"ਊੜਾ",p:"ਊੜਾ",it:["ਊੜਾ","ਪਿੰਡ"],nd:6,h:"ਊੜਾ ਫੜੋ ਜੀ!"},{n:"ਲੈਵਲ 3",t:"grid",tg:"🍎",p:"ਸੇਬ",it:["🍎","🍓","🍊"],nd:8,h:"3 ਸੇਬ ਚੁਣੋ!"},{n:"ਲੈਵਲ 4",t:"fall",tg:"ਅਨਾਰ",p:"ਅਨਾਰ",it:["ਅਨਾਰ","ਅੰਬ"],nd:6,h:"ਅਨਾਰ ਫੜੋ!"},{n:"ਲੈਵਲ 5",t:"grid",tg:"🍦",p:"ਆਈਸ ਕਰੀਮ",it:["🍦","🧁","🍪"],nd:8,h:"3 ਆਈਸ ਕਰੀਮ!"},{n:"ਲੈਵਲ 6",t:"fall",tg:"ਮਿੱਟੀ",p:"ਮਿੱਟੀ",it:["ਮਿੱਟੀ","ਪਾਣੀ"],nd:6,h:"ਮਿੱਟੀ ਫੜੋ!"}];
+var cur=0,sc=0,sel=[],bd=[],si=null,fi=null,ac=null;
+function getAc(){try{if(!ac){ac=new(window.AudioContext||window.webkitAudioContext)();}if(ac.state=='suspended')ac.resume();return ac;}catch(e){return null;}}
+function beep(f){try{var c=getAc();if(!c)return;var o=c.createOscillator();var g=c.createGain();o.frequency.value=f;g.gain.value=0.35;o.connect(g);g.connect(c.destination);o.start();g.gain.exponentialRampToValueAtTime(0.0001,c.currentTime+0.3);setTimeout(function(){try{o.stop()}catch(e){}},300);}catch(e){}try{navigator.vibrate(40);}catch(e){}}
+function openMenu(){try{getAc();beep(700);}catch(e){}document.getElementById('s1').style.display='none';document.getElementById('s2').style.display='block';document.getElementById('s3').style.display='none';document.getElementById('win').style.display='none';clearInterval(si);clearInterval(fi);showLv();}
+function goMenu(){beep(600);clearInterval(si);clearInterval(fi);document.getElementById('s3').style.display='none';document.getElementById('s2').style.display='block';showLv();}
+function goMenuWin(){document.getElementById('win').style.display='none';goMenu();}
+function showLv(){var el=document.getElementById('lv');el.innerHTML='';var un=parseInt(localStorage.getItem('pun_v31')||'1');for(var i=0;i<LVL.length;i++){var l=LVL[i];var d=document.createElement('div');d.className='lv'+(i+1>un?' l':'');d.innerHTML='<b style="font-size:10px">'+l.n+'</b><br><span style="font-size:22px">'+l.tg+'</span><br><small style="font-size:9px">'+l.p+'</small>'+(i+1<un?'<br>✅':'')+(i+1==un?'<br>▶️':'');(function(idx){d.onclick=function(){if(idx+1>un){beep(150);return;}beep(900);cur=idx;startG();}})(i);el.appendChild(d);}}
+function startG(){clearInterval(si);clearInterval(fi);sc=0;sel=[];bd=[];document.getElementById('s2').style.display='none';document.getElementById('s3').style.display='block';document.getElementById('win').style.display='none';var lv=LVL[cur];document.getElementById('ln').innerText=lv.n;document.getElementById('sc').innerText='0/'+lv.nd;document.getElementById('hint').innerText=lv.h;document.getElementById('pf').style.width='0%';document.getElementById('grid').style.display=lv.t=='grid'?'grid':'none';document.getElementById('fall').style.display=lv.t=='fall'?'block':'none';document.getElementById('target').style.display=lv.t=='fall'?'block':'none';document.getElementById('tgWord').innerText=lv.p+' - '+lv.tg;document.getElementById('fall').innerHTML='';if(lv.t=='grid')makeGrid(lv);else makeFall(lv);}
+function makeGrid(lv){var g=document.getElementById('grid');g.innerHTML='';sel=[];var pool=[];for(var j=0;j<7;j++)pool.push(lv.it[0]);for(var j=0;j<7;j++)pool.push(lv.it[1]);for(var j=0;j<7;j++)pool.push(lv.it[2]);pool.sort(function(){return Math.random()-0.5});bd=pool.slice();for(var i=0;i<pool.length;i++){var c=document.createElement('div');c.className='cell';c.innerText=pool[i];(function(idx){c.onclick=function(){beep(850);if(this.className.indexOf('d')>-1||this.className.indexOf('s')>-1)return;this.classList.add('s');sel.push(idx);if(sel.length==3){var v1=bd[sel[0]],v2=bd[sel[1]],v3=bd[sel[2]];var cs=document.querySelectorAll('.cell');if(v1==v2&&v2==v3){for(var s=0;s<sel.length;s++){cs[sel[s]].innerText='🍬';cs[sel[s]].classList.remove('s');cs[sel[s]].classList.add('d');}sc++;document.getElementById('sc').innerText=sc+'/'+lv.nd;document.getElementById('pf').style.width=(sc/lv.nd*100)+'%';beep(1200);sel=[];if(sc>=lv.nd)setTimeout(win,350);}else{beep(180);var tmp=sel.slice();setTimeout(function(){for(var t=0;t<tmp.length;t++)cs[tmp[t]].classList.remove('s');},300);sel=[];}}}})(i);g.appendChild(c);}}
+function makeFall(lv){var ar=document.getElementById('fall');ar.innerHTML='';function sp(){var d=document.createElement('div');d.className='bu';var isT=Math.random()<0.7;var w=isT?lv.tg:lv.it[Math.floor(Math.random()*lv.it.length)];d.textContent='🍬 '+w;d.style.left=Math.floor(Math.random()*50+5)+'%';d.style.top='-60px';d.onclick=function(){if(w==lv.tg){sc++;document.getElementById('sc').innerText=sc+'/'+lv.nd;document.getElementById('pf').style.width=(sc/lv.nd*100)+'%';beep(1200);this.remove();if(sc>=lv.nd)setTimeout(win,200);}else{beep(150);this.remove();}};ar.appendChild(d);}for(var i=0;i<2;i++)setTimeout(sp,i*600);si=setInterval(sp,1000);fi=setInterval(function(){var bs=document.querySelectorAll('#fall.bu');for(var b=0;b<bs.length;b++){var el=bs[b];var t=parseFloat(el.style.top)||-60;t+=2.5;el.style.top=t+'px';if(t>400)el.remove();}},38);}
+function win(){clearInterval(si);clearInterval(fi);var lv=LVL[cur];document.getElementById('wt').innerText=lv.n+' ਪੂਰਾ!';document.getElementById('wm').innerText=lv.p+' ਪੂਰਾ!';document.getElementById('ws').innerText=sc+'/'+lv.nd;document.getElementById('win').style.display='flex';beep(900);var un=parseInt(localStorage.getItem('pun_v31')||'1');if(cur+1>=un&&cur+1<LVL.length)localStorage.setItem('pun_v31',cur+2);}
+function nextLv(){document.getElementById('win').style.display='none';if(cur<LVL.length-1){cur++;startG();}else goMenu();}
+function replay(){document.getElementById('win').style.display='none';startG();}
+showLv();
 </script>
 </body>
 </html>
