@@ -7,71 +7,92 @@
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1905215538239803" crossorigin="anonymous"></script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
-body{background:#87CEEB;min-height:100vh;padding-bottom:110px}
-.box{max-width:420px;margin:15px auto;background:#fff;border-radius:22px;padding:16px;border:4px solid #FF9800;text-align:center}
-.first{padding:30px 16px}
-.first h1{font-size:42px;color:#FF6F00}
-.first p{color:#E91E63;font-weight:900;margin:10px 0}
-.btn{background:linear-gradient(#FF9800,#FF6F00);color:#fff;border:0;padding:14px 28px;border-radius:30px;font-weight:900;font-size:20px;width:100%;margin-top:12px;cursor:pointer}
-.grid{display:grid;grid-template-columns:repeat(6,1fr);gap:7px;background:#FFF3E0;padding:10px;border-radius:16px;margin:10px 0}
-.c{background:#fff;border-radius:12px;height:56px;display:flex;align-items:center;justify-content:center;font-size:30px;border:2.5px solid #FFCC02;cursor:pointer}
-.c.sel{border-color:#FF4081;background:#FCE4EC;transform:scale(0.9)}
+body{background:linear-gradient(#87CEEB,#FFEB3B);min-height:100vh;padding-bottom:115px}
+.box{max-width:420px;margin:10px auto;background:#fff;border-radius:24px;padding:14px;border:5px solid #FF6F00;box-shadow:0 8px 20px rgba(0,0,0,.2);text-align:center}
+.btn{background:linear-gradient(90deg,#FF9800,#E65100);color:#fff;border:0;padding:14px;width:100%;border-radius:40px;font-weight:900;font-size:18px;margin-top:10px}
+.grid{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;background:#FFF8E1;padding:8px;border-radius:14px;margin:10px 0}
+.c{background:#fff;border-radius:10px;height:54px;display:flex;align-items:center;justify-content:center;font-size:28px;border:3px solid #FFCC02}
+.c.sel{border-color:#E91E63;background:#FCE4EC}
 .c.ok{background:#4CAF50!important;color:#fff!important}
-.bar{width:100%;height:16px;background:#eee;border-radius:20px;overflow:hidden;margin:8px 0;border:2px solid #FF9800}
-.f{height:100%;background:#4CAF50;width:0%;transition:0.5s}
-#ad{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:4px solid #FF9800;height:100px;display:flex;align-items:center;justify-content:center;z-index:9999}
-.hidden{display:none}
+.bubbles{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:10px 0}
+.bub{background:radial-gradient(circle at 30% 30%,#E1F5FE,#03A9F4,#01579B);width:72px;height:72px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:30px;font-weight:900;color:#fff;border:3px solid #fff;box-shadow:0 5px 12px rgba(0,0,0,.3)}
+.bub.pop{background:#4CAF50!important;transform:scale(1.15)}
+.bar{width:100%;height:18px;background:#eee;border-radius:20px;overflow:hidden;border:2px solid #FF6F00;margin:8px 0}
+.f{height:100%;background:#4CAF50;width:0%;transition:.4s}
+#ad{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:5px solid #FF6F00;height:105px;display:flex;align-items:center;justify-content:center;z-index:999}
+.hidden{display:none!important}
 </style>
 </head>
 <body>
 
-<div class="box" id="firstPage">
-<div class="first">
-<h1>ਪੰਜਾਬੀ ਟਾਫੀ</h1>
-<p style="font-size:22px">🍪🍩🧁</p>
-<p style="font-size:18px">punjabi toffee crush game</p>
-<p style="font-size:14px;color:#555;margin:15px 0">3 same toffee chuno te level complete karo ji! Saare cookie khatam honge!</p>
-<button class="btn" onclick="startGame()">▶️ ਗੇਮ ਸ਼ੁਰੂ ਕਰੋ ਜੀ</button>
-<p style="font-size:12px;color:#999;margin-top:12px">V36 FINAL - First Page Wapas!</p>
-<div style="margin-top:15px">
-<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1905215538239803" data-ad-slot="1234567890" data-ad-format="auto" data-full-width-responsive="true"></ins>
-<script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+<div class="box" id="menu">
+<h1 style="color:#FF6F00;font-size:40px">ਪੰਜਾਬੀ ਟਾਫੀ</h1>
+<p style="color:#E91E63;font-weight:900">punjabi toffee crush game</p>
+<p style="font-size:13px;color:#555;margin:8px 0">Punjabi Learning Game - Jaisa Decide Kiya Tha!</p>
+<div style="text-align:left;background:#FFF3E0;padding:10px;border-radius:10px;font-size:12px">
+<b>Decided Levels:</b><br>
+1. Toffee Crush 🍪 - 3 same<br>
+2. Ura Aira Bubble 🫧 - ੳ ਅ ੲ<br>
+3. Ka Kha Ga 📚 - ਕ ਖ ਗ
 </div>
-</div>
+<button class="btn" onclick="startGame(1)">▶️ Level 1 - Toffee Crush</button>
+<button class="btn" style="background:linear-gradient(90deg,#2196F3,#0D47A1)" onclick="startGame(2)">🫧 Level 2 - Ura Aira Bubble - Jo Missing Tha!</button>
+<button class="btn" style="background:linear-gradient(90deg,#4CAF50,#2E7D32)" onclick="toggleSound()">🔊 Sound ON/OFF</button>
 </div>
 
-<div class="box hidden" id="gamePage">
-<p style="color:#E91E63;font-weight:900">punjabi toffee crush game - V36</p>
-<div style="display:flex;justify-content:space-between;font-weight:900;margin-top:8px"><span id="lvl">ਲੈਵਲ 1</span><span id="sc" style="color:#E91E63">0/9</span></div>
+<div class="box hidden" id="gameBox">
+<div style="display:flex;justify-content:space-between;font-weight:900"><span id="lvl">ਲੈਵਲ 1</span><span id="sc" style="color:#E91E63">0/9</span></div>
 <div class="bar"><div id="pf" class="f"></div></div>
-<p style="color:#E91E63;font-weight:900" id="msg">3 same ਚੁਣੋ ਜੀ! 🍪🍪🍪</p>
-<div class="grid" id="g"></div>
-<button class="btn" onclick="showFirst()">⬅️ ਪਹਿਲਾ ਪੇਜ</button>
+<p id="msg" style="color:#E91E63;font-weight:900"></p>
+<div id="area"></div>
+<button class="btn" style="background:#2196F3" onclick="nextLevel()">⏭️ Next Level</button>
+<button class="btn" style="background:#9E9E9E" onclick="showMenu()">⬅️ Menu</button>
 </div>
 
-<div id="ad"><ins class="adsbygoogle" style="display:block;width:100%" data-ad-client="ca-pub-1905215538239803" data-ad-slot="1234567890" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+<div id="ad"><ins class="adsbygoogle" style="display:inline-block;width:320px;height:100px" data-ad-client="ca-pub-1905215538239803" data-ad-slot="1234567890"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
 
 <script>
-let level=1,sc=0,sel=[],bd=[],actx;
-function sd(f){try{if(!actx)actx=new(window.AudioContext||window.webkitAudioContext)();let o=actx.createOscillator(),g=actx.createGain();o.connect(g);g.connect(actx.destination);o.frequency.value=f;g.gain.value=0.25;o.start();o.stop(actx.currentTime+0.2);}catch(e){}}
-function showFirst(){document.getElementById('firstPage').classList.remove('hidden');document.getElementById('gamePage').classList.add('hidden');}
-function startGame(){document.getElementById('firstPage').classList.add('hidden');document.getElementById('gamePage').classList.remove('hidden');make();sd(800);}
-function make(){
-let G=document.getElementById('g');G.innerHTML='';sel=[];sc=0;
-document.getElementById('sc').innerText='0/9';document.getElementById('pf').style.width='0%';
+let level=1,sc=0,sel=[],bd=[],actx,soundOn=true;
+function tone(f){if(!soundOn)return;try{if(!actx)actx=new(window.AudioContext||window.webkitAudioContext)();let o=actx.createOscillator(),g=actx.createGain();o.connect(g);g.connect(actx.destination);o.frequency.value=f;g.gain.value=0.28;o.start();o.stop(actx.currentTime+0.25);}catch(e){}}
+function toggleSound(){soundOn=!soundOn;alert(soundOn?'Sound ON 🔊':'Sound OFF 🔇');tone(800);}
+function showMenu(){document.getElementById('menu').classList.remove('hidden');document.getElementById('gameBox').classList.add('hidden');}
+function startGame(l){level=l;document.getElementById('menu').classList.add('hidden');document.getElementById('gameBox').classList.remove('hidden');tone(800);build();}
+function nextLevel(){level++;if(level>3)level=1;build();}
+function build(){
+let area=document.getElementById('area');area.innerHTML='';sel=[];sc=0;
 document.getElementById('lvl').innerText='ਲੈਵਲ '+level;
-let icons=["🍪","🍩","🧁"],p=[];
-for(let j=0;j<3;j++)for(let i=0;i<9;i++)p.push(icons[j]);
-p.sort(()=>Math.random()-0.5);bd=p.slice();
-for(let i=0;i<27;i++){
-let d=document.createElement('div');d.className='c';d.innerText=p[i];
-d.onclick=function(){
-if(this.classList.contains('ok')||this.classList.contains('sel'))return;
-sd(600);this.classList.add('sel');sel.push(i);
-if(sel.length==3){
-let a=bd[sel[0]],b=bd[sel[1]],c2=bd[sel[2]],all=document.querySelectorAll('.c');
-if(a==b&&b==c2){sd(900);sel.forEach(s=>{all[s].innerText='✅';all[s].className='c ok';});sc++;document.getElementById('sc').innerText=sc+'/9';document.getElementById('pf').style.width=(sc/9*100)+'%';sel=[];if(sc>=9){sd(1200);setTimeout(()=>{alert('ਲੈਵਲ '+level+' Complete! 🏆');level++;make();},500);}}
-else{sd(200);let t=[...sel];setTimeout(()=>{t.forEach(s=>all[s].classList.remove('sel'));},400);sel=[];}}};G.appendChild(d);}}
+document.getElementById('sc').innerText='0/9';document.getElementById('pf').style.width='0%';
+if(level==1){
+document.getElementById('msg').innerText='Level 1: 3 same toffee chuno! 🍪';
+let icons=["🍪","🍩","🧁"],p=[];for(let j=0;j<3;j++)for(let i=0;i<9;i++)p.push(icons[j]);p.sort(()=>Math.random()-0.5);bd=p;
+let g=document.createElement('div');g.className='grid';
+for(let i=0;i<27;i++){let d=document.createElement('div');d.className='c';d.innerText=p[i];
+d.onclick=function(){if(this.classList.contains('ok')||this.classList.contains('sel'))return;tone(600);this.classList.add('sel');sel.push(i);
+if(sel.length==3){let a=bd[sel[0]],b=bd[sel[1]],c2=bd[sel[2]],all=g.querySelectorAll('.c');
+if(a==b&&b==c2){tone(900);sel.forEach(s=>{all[s].innerText='✅';all[s].className='c ok';});sc++;document.getElementById('sc').innerText=sc+'/9';document.getElementById('pf').style.width=(sc/9*100)+'%';sel=[];if(sc>=9){tone(1200);setTimeout(()=>{alert('Level 1 Done! Ab Level 2 - Ura Aira Bubble!');nextLevel();},500);}}
+else{tone(200);let t=[...sel];setTimeout(()=>{t.forEach(s=>all[s].classList.remove('sel'));},400);sel=[];}}};g.appendChild(d);}area.appendChild(g);
+}else if(level==2){
+document.getElementById('msg').innerText='Level 2: Ura Aira - ੳ ਅ ੲ bubble phodo! 🫧';
+let target=["ੳ","ਅ","ੲ"];let allLetters=["ੳ","ਅ","ੲ","ਸ","ਹ","ਕ","ਖ"];
+let p=[];for(let i=0;i<9;i++)p.push(target[i%3]);for(let i=0;i<7;i++)p.push(allLetters[Math.floor(Math.random()*allLetters.length)]);p.sort(()=>Math.random()-0.5);
+let g=document.createElement('div');g.className='bubbles';
+p.forEach(ch=>{let b=document.createElement('div');b.className='bub';b.innerText=ch;
+b.onclick=function(){if(this.classList.contains('pop'))return;
+if(target.includes(ch)){tone(900);this.innerText='✅';this.classList.add('pop');sc++;document.getElementById('sc').innerText=sc+'/9';document.getElementById('pf').style.width=(sc/9*100)+'%';
+if(sc>=9){tone(1200);setTimeout(()=>{alert('Ura Aira Complete! 🎉');nextLevel();},500);}}
+else{tone(200);this.style.opacity='0.4';setTimeout(()=>{this.style.opacity='1';},300);}};g.appendChild(b);});
+area.appendChild(g);
+}else{
+document.getElementById('msg').innerText='Level 3: ਕ ਖ ਗ - Akhar seekho! 📚';
+let icons=["ਕ","ਖ","ਗ"],p=[];for(let j=0;j<3;j++)for(let i=0;i<9;i++)p.push(icons[j]);p.sort(()=>Math.random()-0.5);bd=p;
+let g=document.createElement('div');g.className='grid';
+for(let i=0;i<27;i++){let d=document.createElement('div');d.className='c';d.style.fontSize='26px';d.innerText=p[i];
+d.onclick=function(){if(this.classList.contains('ok')||this.classList.contains('sel'))return;tone(600);this.classList.add('sel');sel.push(i);
+if(sel.length==3){let a=bd[sel[0]],b=bd[sel[1]],c2=bd[sel[2]],all=g.querySelectorAll('.c');
+if(a==b&&b==c2){tone(900);sel.forEach(s=>{all[s].innerText='✅';all[s].className='c ok';});sc++;document.getElementById('sc').innerText=sc+'/9';document.getElementById('pf').style.width=(sc/9*100)+'%';sel=[];if(sc>=9){tone(1200);setTimeout(()=>{alert('Sare Level Done! 🏆');showMenu();},500);}}
+else{tone(200);let t=[...sel];setTimeout(()=>{t.forEach(s=>all[s].classList.remove('sel'));},400);sel=[];}}};g.appendChild(d);}area.appendChild(g);
+}
+}
 </script>
 </body>
 </html>
