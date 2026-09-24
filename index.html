@@ -18,24 +18,22 @@ body{background:linear-gradient(180deg,#87CEEB,#FFF176,#FF9800);min-height:100vh
 @keyframes fall{0%{transform:translateY(-70px)}100%{transform:translateY(450px)}}
 .bar{width:100%;height:20px;background:#eee;border-radius:20px;overflow:hidden;border:2px solid #FF6F00;margin:8px 0}
 .f{height:100%;background:linear-gradient(90deg,#4CAF50,#8BC34A);width:0%;transition:0.5s}
-.hidden{display:none}
-#completeModal{position:fixed;inset:0;background:rgba(0,0,0,0.7);display:flex;align-items:center;justify-content:center;z-index:10000;padding:15px}
-#completeBox{background:#fff;border-radius:28px;padding:22px;max-width:360px;width:100%;text-align:center;border:5px solid #FF6F00;animation:pop 0.5s ease}
-@keyframes pop{0%{transform:scale(0.5)}100%{transform:scale(1)}}
-#adBox{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:5px solid #FF6F00;min-height:110px;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:999;padding:8px}
+.hidden{display:none!important}
+#completeModal{position:fixed;inset:0;background:rgba(0,0,0,0.75);display:flex;align-items:center;justify-content:center;z-index:99999;padding:15px}
+#completeBox{background:#fff;border-radius:28px;padding:22px;max-width:360px;width:100%;text-align:center;border:5px solid #FF6F00}
+#adBox{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:5px solid #FF6F00;min-height:110px;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:10;padding:8px}
 </style>
 </head>
 <body>
 <div class="box" id="menu">
 <h1 style="color:#FF6F00;font-size:36px">ਪੰਜਾਬੀ ਟਾਫੀ</h1>
 <p style="color:#E91E63;font-weight:900">punjabi toffee crush game</p>
-<p style="font-size:12px;color:#666">FINAL - Sab Thik Hai Ji!</p>
-<div style="background:linear-gradient(90deg,#FFF3E0,#FFECB3);padding:10px;border-radius:12px;margin:10px 0;text-align:left;font-size:13px;border-left:5px solid #FF6F00">
+<div style="background:#FFF3E0;padding:10px;border-radius:12px;margin:10px 0;text-align:left;font-size:13px;border-left:5px solid #FF6F00">
 🍪 L1: Toffee Crush<br>
-🫧 L2: Ura Aira - Upar Se Girega ੳ ਅ ੲ<br>
-📚 L3: Ka Kha Ga - ਕ ਖ ਗ
+🫧 L2: Ura Aira - Upar Se Girega<br>
+📚 L3: Ka Kha Ga
 </div>
-<button class="btn" onclick="start(1)">▶️ Level 1 - Toffee Crush</button>
+<button class="btn" onclick="start(1)">▶️ Level 1</button>
 <button class="btn" style="background:linear-gradient(90deg,#2196F3,#0D47A1)" onclick="start(2)">🫧 Level 2 - Upar Se Bubble</button>
 <button class="btn" style="background:#4CAF50" onclick="enableSound()">🔊 Sound ON</button>
 </div>
@@ -44,18 +42,18 @@ body{background:linear-gradient(180deg,#87CEEB,#FFF176,#FF9800);min-height:100vh
 <div class="bar"><div id="pf" class="f"></div></div>
 <p id="msg" style="color:#E91E63;font-weight:900;margin:6px 0"></p>
 <div id="area"></div>
-<button class="btn" style="background:#2196F3" onclick="nextLevel()">⏭️ Next Level</button>
+<button class="btn" style="background:#2196F3" onclick="goNext()">⏭️ Next Level</button>
 <button class="btn" style="background:#9E9E9E" onclick="showMenu()">⬅️ Menu</button>
 </div>
 <div id="completeModal" class="hidden">
 <div id="completeBox">
 <div style="font-size:40px">🎉🎊✨</div>
 <h2 style="color:#FF6F00;font-size:28px;margin:10px 0">ਸ਼ਾਬਾਸ਼ ਜੀ! 🎉</h2>
-<p id="completeText" style="font-size:16px;color:#333;font-weight:700">Level Complete!</p>
+<p id="completeText" style="font-size:16px;font-weight:700">Level Complete!</p>
 <p style="font-size:22px;margin:8px 0">⭐⭐⭐</p>
-<button class="btn" style="background:linear-gradient(90deg,#4CAF50,#2E7D32)" onclick="nextLevelFromModal()">⏭️ Next Level</button>
-<button class="btn" style="background:linear-gradient(90deg,#2196F3,#0D47A1)" onclick="closeModalAndMenu()">🏠 Menu</button>
-<button class="btn" style="background:#FF9800" onclick="replayLevel()">🔄 Replay</button>
+<button class="btn" style="background:linear-gradient(90deg,#4CAF50,#2E7D32)" onclick="goNext()">⏭️ Next Level</button>
+<button class="btn" style="background:linear-gradient(90deg,#2196F3,#0D47A1)" onclick="showMenu()">🏠 Menu</button>
+<button class="btn" style="background:#FF9800" onclick="replayNow()">🔄 Replay</button>
 </div>
 </div>
 <div id="adBox">
@@ -67,13 +65,10 @@ body{background:linear-gradient(180deg,#87CEEB,#FFF176,#FF9800);min-height:100vh
 let level=1,score=0,sel=[],board=[],ac,soundOn=false,fallInterval;
 function enableSound(){soundOn=true;if(!ac)ac=new(window.AudioContext||window.webkitAudioContext)();tone(800);}
 function tone(f){if(!soundOn)return;try{if(!ac)ac=new(window.AudioContext||window.webkitAudioContext)();let o=ac.createOscillator(),g=ac.createGain();o.connect(g);g.connect(ac.destination);o.frequency.value=f;g.gain.setValueAtTime(0.35,ac.currentTime);g.gain.exponentialRampToValueAtTime(0.01,ac.currentTime+0.35);o.start();o.stop(ac.currentTime+0.35);}catch(e){}}
-function showMenu(){clearInterval(fallInterval);closeModal();document.getElementById('menu').classList.remove('hidden');document.getElementById('game').classList.add('hidden');}
+function showMenu(){clearInterval(fallInterval);document.getElementById('completeModal').classList.add('hidden');document.getElementById('menu').classList.remove('hidden');document.getElementById('game').classList.add('hidden');}
 function start(l){level=l;soundOn=true;if(!ac)ac=new(window.AudioContext||window.webkitAudioContext)();document.getElementById('menu').classList.add('hidden');document.getElementById('game').classList.remove('hidden');tone(800);make();}
-function nextLevel(){clearInterval(fallInterval);closeModal();level++;if(level>3){level=1;showMenu();return;}make();}
-function nextLevelFromModal(){closeModal();nextLevel();}
-function closeModal(){document.getElementById('completeModal').classList.add('hidden');}
-function closeModalAndMenu(){closeModal();showMenu();}
-function replayLevel(){closeModal();make();}
+function goNext(){document.getElementById('completeModal').classList.add('hidden');clearInterval(fallInterval);level++;if(level>3){level=1;showMenu();return;}make();}
+function replayNow(){document.getElementById('completeModal').classList.add('hidden');make();}
 function showComplete(t){document.getElementById('completeText').innerText=t;document.getElementById('completeModal').classList.remove('hidden');tone(1200);setTimeout(()=>tone(1000),200);setTimeout(()=>tone(1300),400);}
 function make(){
 clearInterval(fallInterval);
