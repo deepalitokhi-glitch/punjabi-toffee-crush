@@ -7,76 +7,111 @@
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1905215538239803" crossorigin="anonymous"></script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
-body{background:linear-gradient(#87CEEB,#FFEB3B);min-height:100vh;padding-bottom:110px}
-.box{max-width:420px;margin:12px auto;background:#fff;border-radius:22px;padding:15px;border:4px solid #FF9800;text-align:center}
-.btn{background:orange;color:#fff;border:0;padding:14px;width:100%;border-radius:30px;font-weight:900;font-size:17px;margin-top:10px;cursor:pointer}
-.grid{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;background:#FFF3E0;padding:8px;border-radius:12px;margin:10px 0}
-.c{background:#fff;border-radius:10px;height:54px;display:flex;align-items:center;justify-content:center;font-size:28px;border:2px solid #FFCC02;cursor:pointer}
+body{background:linear-gradient(180deg,#87CEEB,#FFF176,#FF9800);min-height:100vh;padding-bottom:125px}
+.box{max-width:420px;margin:12px auto;background:#fff;border-radius:24px;padding:14px;border:5px solid #FF6F00;box-shadow:0 12px 24px rgba(0,0,0,.2);text-align:center}
+.btn{background:linear-gradient(90deg,#FF9800,#E65100);color:#fff;border:0;padding:14px;width:100%;border-radius:30px;font-weight:900;font-size:17px;margin-top:10px;cursor:pointer}
+.grid{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;background:#FFF8E1;padding:8px;border-radius:14px;margin:10px 0}
+.c{background:#fff;border-radius:10px;height:52px;display:flex;align-items:center;justify-content:center;font-size:26px;border:2.5px solid #FFCC02;cursor:pointer}
 .c.ok{background:#4CAF50!important;color:#fff!important}
-.bubbles{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:10px 0}
-.bub{background:#03A9F4;width:70px;height:70px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;color:#fff;font-weight:900;border:3px solid #fff;cursor:pointer}
-.bar{width:100%;height:16px;background:#eee;border-radius:10px;overflow:hidden;border:2px solid orange;margin:8px 0}
-.f{height:100%;background:green;width:0%;transition:0.4s}
+.fallArea{position:relative;width:100%;height:420px;background:linear-gradient(180deg,#E1F5FE,#B3E5FC);border-radius:16px;overflow:hidden;border:3px solid #03A9F4;margin:10px 0}
+.fallBubble{position:absolute;width:62px;height:62px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:900;color:#fff;border:3px solid #fff;box-shadow:0 4px 10px rgba(0,0,0,.3);cursor:pointer;animation:fall linear forwards}
+@keyframes fall{0%{transform:translateY(-70px)}100%{transform:translateY(450px)}}
+.bar{width:100%;height:20px;background:#eee;border-radius:20px;overflow:hidden;border:2px solid #FF6F00;margin:8px 0}
+.f{height:100%;background:linear-gradient(90deg,#4CAF50,#8BC34A);width:0%;transition:0.5s}
 .hidden{display:none}
-#ad{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:4px solid orange;height:100px;display:flex;align-items:center;justify-content:center}
+#completeModal{position:fixed;inset:0;background:rgba(0,0,0,0.7);display:flex;align-items:center;justify-content:center;z-index:10000;padding:15px}
+#completeBox{background:#fff;border-radius:28px;padding:22px;max-width:360px;width:100%;text-align:center;border:5px solid #FF6F00;animation:pop 0.5s ease}
+@keyframes pop{0%{transform:scale(0.5)}100%{transform:scale(1)}}
+#adBox{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:5px solid #FF6F00;min-height:110px;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:999;padding:8px}
 </style>
 </head>
 <body>
-
 <div class="box" id="menu">
-<h1 style="color:#FF6F00">ਪੰਜਾਬੀ ਟਾਫੀ</h1>
+<h1 style="color:#FF6F00;font-size:36px">ਪੰਜਾਬੀ ਟਾਫੀ</h1>
 <p style="color:#E91E63;font-weight:900">punjabi toffee crush game</p>
-<p style="font-size:13px;color:#555">Menu - Jaisa Decide Kiya Tha</p>
+<p style="font-size:12px;color:#666">FINAL - Sab Thik Hai Ji!</p>
+<div style="background:linear-gradient(90deg,#FFF3E0,#FFECB3);padding:10px;border-radius:12px;margin:10px 0;text-align:left;font-size:13px;border-left:5px solid #FF6F00">
+🍪 L1: Toffee Crush<br>
+🫧 L2: Ura Aira - Upar Se Girega ੳ ਅ ੲ<br>
+📚 L3: Ka Kha Ga - ਕ ਖ ਗ
+</div>
 <button class="btn" onclick="start(1)">▶️ Level 1 - Toffee Crush</button>
-<button class="btn" style="background:#2196F3" onclick="start(2)">🫧 Level 2 - Ura Aira Bubble ੳ ਅ ੲ</button>
-<button class="btn" style="background:#4CAF50" onclick="start(3)">📚 Level 3 - ਕ ਖ ਗ</button>
+<button class="btn" style="background:linear-gradient(90deg,#2196F3,#0D47A1)" onclick="start(2)">🫧 Level 2 - Upar Se Bubble</button>
+<button class="btn" style="background:#4CAF50" onclick="enableSound()">🔊 Sound ON</button>
 </div>
-
 <div class="box hidden" id="game">
-<div style="display:flex;justify-content:space-between;font-weight:900"><span id="lv">Level 1</span><span id="sc">0/9</span></div>
+<div style="display:flex;justify-content:space-between;font-weight:900"><span id="lv">Level 1</span><span id="sc" style="color:#E91E63">0/9</span></div>
 <div class="bar"><div id="pf" class="f"></div></div>
-<p id="msg" style="color:#E91E63;font-weight:900"></p>
+<p id="msg" style="color:#E91E63;font-weight:900;margin:6px 0"></p>
 <div id="area"></div>
-<button class="btn" style="background:#2196F3" onclick="nextLevel()">Next Level ⏭️</button>
-<button class="btn" style="background:gray" onclick="showMenu()">Menu ⬅️</button>
+<button class="btn" style="background:#2196F3" onclick="nextLevel()">⏭️ Next Level</button>
+<button class="btn" style="background:#9E9E9E" onclick="showMenu()">⬅️ Menu</button>
 </div>
-
-<div id="ad"><ins class="adsbygoogle" style="display:inline-block;width:320px;height:90px" data-ad-client="ca-pub-1905215538239803" data-ad-slot="1234567890"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
-
+<div id="completeModal" class="hidden">
+<div id="completeBox">
+<div style="font-size:40px">🎉🎊✨</div>
+<h2 style="color:#FF6F00;font-size:28px;margin:10px 0">ਸ਼ਾਬਾਸ਼ ਜੀ! 🎉</h2>
+<p id="completeText" style="font-size:16px;color:#333;font-weight:700">Level Complete!</p>
+<p style="font-size:22px;margin:8px 0">⭐⭐⭐</p>
+<button class="btn" style="background:linear-gradient(90deg,#4CAF50,#2E7D32)" onclick="nextLevelFromModal()">⏭️ Next Level</button>
+<button class="btn" style="background:linear-gradient(90deg,#2196F3,#0D47A1)" onclick="closeModalAndMenu()">🏠 Menu</button>
+<button class="btn" style="background:#FF9800" onclick="replayLevel()">🔄 Replay</button>
+</div>
+</div>
+<div id="adBox">
+<p style="font-size:11px;color:#999">🙏 Advertisement - Support</p>
+<ins class="adsbygoogle" style="display:inline-block;width:320px;height:90px" data-ad-client="ca-pub-1905215538239803" data-ad-slot="1234567890"></ins>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+</div>
 <script>
-let level=1,score=0,sel=[],board=[],audio;
-function sound(f){try{if(!audio)audio=new(window.AudioContext||window.webkitAudioContext)();let o=audio.createOscillator(),g=audio.createGain();o.connect(g);g.connect(audio.destination);o.frequency.value=f;g.gain.value=0.3;o.start();o.stop(audio.currentTime+0.2);}catch(e){}}
-function showMenu(){document.getElementById('menu').classList.remove('hidden');document.getElementById('game').classList.add('hidden');}
-function start(l){level=l;document.getElementById('menu').classList.add('hidden');document.getElementById('game').classList.remove('hidden');sound(800);make();}
-function nextLevel(){level++;if(level>3)level=1;make();}
+let level=1,score=0,sel=[],board=[],ac,soundOn=false,fallInterval;
+function enableSound(){soundOn=true;if(!ac)ac=new(window.AudioContext||window.webkitAudioContext)();tone(800);}
+function tone(f){if(!soundOn)return;try{if(!ac)ac=new(window.AudioContext||window.webkitAudioContext)();let o=ac.createOscillator(),g=ac.createGain();o.connect(g);g.connect(ac.destination);o.frequency.value=f;g.gain.setValueAtTime(0.35,ac.currentTime);g.gain.exponentialRampToValueAtTime(0.01,ac.currentTime+0.35);o.start();o.stop(ac.currentTime+0.35);}catch(e){}}
+function showMenu(){clearInterval(fallInterval);closeModal();document.getElementById('menu').classList.remove('hidden');document.getElementById('game').classList.add('hidden');}
+function start(l){level=l;soundOn=true;if(!ac)ac=new(window.AudioContext||window.webkitAudioContext)();document.getElementById('menu').classList.add('hidden');document.getElementById('game').classList.remove('hidden');tone(800);make();}
+function nextLevel(){clearInterval(fallInterval);closeModal();level++;if(level>3){level=1;showMenu();return;}make();}
+function nextLevelFromModal(){closeModal();nextLevel();}
+function closeModal(){document.getElementById('completeModal').classList.add('hidden');}
+function closeModalAndMenu(){closeModal();showMenu();}
+function replayLevel(){closeModal();make();}
+function showComplete(t){document.getElementById('completeText').innerText=t;document.getElementById('completeModal').classList.remove('hidden');tone(1200);setTimeout(()=>tone(1000),200);setTimeout(()=>tone(1300),400);}
 function make(){
+clearInterval(fallInterval);
 let area=document.getElementById('area');area.innerHTML='';sel=[];score=0;
 document.getElementById('lv').innerText='Level '+level;
 document.getElementById('sc').innerText='0/9';document.getElementById('pf').style.width='0%';
 if(level==1){
-document.getElementById('msg').innerText='3 same toffee chuno 🍪🍪🍪';
+document.getElementById('msg').innerText='3 same toffee chuno 🍪';
 let icons=["🍪","🍩","🧁"],p=[];for(let j=0;j<3;j++)for(let i=0;i<9;i++)p.push(icons[j]);p.sort(()=>Math.random()-0.5);board=p;
 let g=document.createElement('div');g.className='grid';
 for(let i=0;i<27;i++){let d=document.createElement('div');d.className='c';d.innerText=p[i];
-d.onclick=function(){if(this.classList.contains('ok'))return;sound(600);this.style.background='#FCE4EC';sel.push(i);
+d.onclick=function(){if(this.classList.contains('ok'))return;tone(600);this.style.background='#FCE4EC';sel.push(i);
 if(sel.length==3){let a=board[sel[0]],b=board[sel[1]],c=board[sel[2]],all=g.querySelectorAll('.c');
-if(a==b&&b==c){sound(900);sel.forEach(s=>{all[s].innerText='✅';all[s].className='c ok';});score++;document.getElementById('sc').innerText=score+'/9';document.getElementById('pf').style.width=score/9*100+'%';sel=[];if(score>=9){sound(1200);setTimeout(()=>{alert('Level 1 Complete!');nextLevel();},500);}}
-else{let t=[...sel];setTimeout(()=>{t.forEach(s=>all[s].style.background='#fff');},300);sel=[];}}};g.appendChild(d);}area.appendChild(g);
+if(a==b&&b==c){tone(900);sel.forEach(s=>{all[s].innerText='✅';all[s].className='c ok';});score++;upd();sel=[];if(score>=9)setTimeout(()=>showComplete("Level 1 Complete! 🎉"),500);}
+else{tone(200);let t=[...sel];setTimeout(()=>{t.forEach(s=>all[s].style.background='#fff');},350);sel=[];}}};g.appendChild(d);}area.appendChild(g);
 }else if(level==2){
-document.getElementById('msg').innerText='Ura Aira Bubble Phodo - ੳ ਅ ੲ 🫧';
-let target=["ੳ","ਅ","ੲ"],p=[];for(let i=0;i<9;i++)p.push(target[i%3]);for(let i=0;i<7;i++)p.push(["ਸ","ਹ","ਕ"][Math.floor(Math.random()*3)]);p.sort(()=>Math.random()-0.5);
-let g=document.createElement('div');g.className='bubbles';
-p.forEach(ch=>{let b=document.createElement('div');b.className='bub';b.innerText=ch;
-b.onclick=function(){if(target.includes(ch)){sound(900);this.innerText='✅';this.style.background='green';score++;document.getElementById('sc').innerText=score+'/9';document.getElementById('pf').style.width=score/9*100+'%';if(score>=9){sound(1200);setTimeout(()=>{alert('Ura Aira Complete!');nextLevel();},500);}}else{sound(200);}};g.appendChild(b);});area.appendChild(g);
+document.getElementById('msg').innerText='Upar Se Gir Raha! ੳ ਅ ੲ Phodo 🫧';
+let target=["ੳ","ਅ","ੲ"],all=["ੳ","ਅ","ੲ","ਸ","ਹ"],fallArea=document.createElement('div');fallArea.className='fallArea';area.appendChild(fallArea);
+fallInterval=setInterval(()=>{
+if(score>=9){clearInterval(fallInterval);return;}
+let ch=all[Math.floor(Math.random()*all.length)];
+let b=document.createElement('div');b.className='fallBubble';b.innerText=ch;
+b.style.left=Math.random()*78+'%';b.style.background=target.includes(ch)?'radial-gradient(circle at 30% 30%,#C8E6C9,#4CAF50,#2E7D32)':'radial-gradient(circle at 30% 30%,#E1F5FE,#03A9F4,#01579B)';
+b.style.animationDuration=(3+Math.random()*2)+'s';
+b.onclick=function(){if(target.includes(ch)){tone(900);this.innerText='✅';this.style.background='#4CAF50';score++;upd();setTimeout(()=>{this.remove();},200);if(score>=9){clearInterval(fallInterval);setTimeout(()=>showComplete("Level 2 Complete! ੳ ਅ ੲ Done! 🎉"),500);}}else{tone(200);this.style.opacity='0.2';}};
+fallArea.appendChild(b);setTimeout(()=>{if(b.parentNode)b.remove();},5000);
+},650);
 }else{
 document.getElementById('msg').innerText='ਕ ਖ ਗ - Akhar Seekho 📚';
 let icons=["ਕ","ਖ","ਗ"],p=[];for(let j=0;j<3;j++)for(let i=0;i<9;i++)p.push(icons[j]);p.sort(()=>Math.random()-0.5);board=p;
 let g=document.createElement('div');g.className='grid';
 for(let i=0;i<27;i++){let d=document.createElement('div');d.className='c';d.innerText=p[i];d.style.fontSize='26px';
-d.onclick=function(){if(this.classList.contains('ok'))return;sound(600);sel.push(i);this.style.background='#FCE4EC';
+d.onclick=function(){if(this.classList.contains('ok'))return;tone(600);this.style.background='#FCE4EC';sel.push(i);
 if(sel.length==3){let a=board[sel[0]],b=board[sel[1]],c=board[sel[2]],all=g.querySelectorAll('.c');
-if(a==b&&b==c){sound(900);sel.forEach(s=>{all[s].innerText='✅';all[s].className='c ok';});score++;document.getElementById('sc').innerText=score+'/9';document.getElementById('pf').style.width=score/9*100+'%';sel=[];if(score>=9){sound(1200);setTimeout(()=>{alert('All Complete!');showMenu();},500);}}else{let t=[...sel];setTimeout(()=>{t.forEach(s=>all[s].style.background='#fff');},300);sel=[];}}};g.appendChild(d);}area.appendChild(g);
+if(a==b&&b==c){tone(900);sel.forEach(s=>{all[s].innerText='✅';all[s].className='c ok';});score++;upd();sel=[];if(score>=9)setTimeout(()=>showComplete("All Done! 🏆 Punjabi Aa Gayi!"),500);}
+else{let t=[...sel];setTimeout(()=>{t.forEach(s=>all[s].style.background='#fff');},350);sel=[];}}};g.appendChild(d);}area.appendChild(g);
 }}
+function upd(){document.getElementById('sc').innerText=score+'/9';document.getElementById('pf').style.width=score/9*100+'%';}
 </script>
 </body>
 </html>
