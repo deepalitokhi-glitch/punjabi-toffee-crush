@@ -5,11 +5,12 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#ff8c00">
-<title>punjabi toffee crush game</title>
+<title>Punjabi Toffee Crush - Best Educational Game for Punjabi Kids</title>
+<meta name="description" content="Punjabi Toffee Crush is a free educational puzzle game for kids to learn Punjabi alphabets Ura Aira, Ka Kha Ga with toffee crush and bubble pop games.">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1905215538239803" crossorigin="anonymous"></script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
-body{background:linear-gradient(180deg,#87CEEB,#FFF176,#FF9800);min-height:100vh;padding-bottom:125px}
+body{background:linear-gradient(180deg,#87CEEB,#FFF176,#FF9800);min-height:100vh;padding-bottom:20px}
 .box{max-width:420px;margin:12px auto;background:#fff;border-radius:24px;padding:14px;border:5px solid #FF6F00;box-shadow:0 12px 24px rgba(0,0,0,.2);text-align:center}
 .btn{background:linear-gradient(90deg,#FF9800,#E65100);color:#fff;border:0;padding:14px;width:100%;border-radius:30px;font-weight:900;font-size:17px;margin-top:10px;cursor:pointer}
 .grid{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;background:#FFF8E1;padding:8px;border-radius:14px;margin:10px 0}
@@ -23,18 +24,26 @@ body{background:linear-gradient(180deg,#87CEEB,#FFF176,#FF9800);min-height:100vh
 .hidden{display:none!important}
 #completeModal{position:fixed;inset:0;background:rgba(0,0,0,0.75);display:flex;align-items:center;justify-content:center;z-index:99999;padding:15px}
 #completeBox{background:#fff;border-radius:28px;padding:22px;max-width:360px;width:100%;text-align:center;border:5px solid #FF6F00}
-#adBox{position:relative;bottom:0;left:0;right:0;background:#fff;border-top:5px solid #FF6F00;min-height:110px;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:10;padding:8px}
+.contentBox{padding:18px;background:#fff;text-align:left;max-width:650px;margin:15px auto;border-radius:14px;line-height:1.6;color:#333;border-left:6px solid #FF6F00}
 </style>
 </head>
 <body>
-<div style="padding:15px;background:#fff;text-align:left;max-width:600px;margin:10px auto;border-radius:10px;">
-<h1>Punjabi Toffee Crush - Best Match 3 Game</h1>
-<p>Punjabi Toffee Crush is a fun desi puzzle game with colorful toffees. Play 100+ levels free and enjoy Punjabi tadka.</p>
-<h2>How to Play?</h2>
-<p>Match 3 toffees to crush, complete target, use bomb toffees for high score. Daily rewards available.</p>
-<h2>Features</h2>
-<p>- 100 Levels<br>- Free<br>- Mobile Friendly<br>- Daily Rewards</p>
+
+<div class="contentBox">
+<h1>Punjabi Toffee Crush - Best Match 3 Game for Kids</h1>
+<p><b>Punjabi Toffee Crush</b> is a fun, free and educational puzzle game specially made for Punjabi kids and families. This game combines colorful toffee crushing with learning Punjabi language. Many Punjabi families living in Canada, USA, UK want their kids to learn Punjabi alphabets, so we made this game with love for Punjabi culture.</p>
+
+<h2>What is inside this game?</h2>
+<p>This game has 3 exciting levels. <b>Level 1 - Toffee Crush:</b> This is classic match 3 puzzle. You need to match 3 same toffees like 🍪🍩🧁 to crush them and score points. You have to complete 9 targets to win. <b>Level 2 - Ura Aira Bubble Game:</b> In this level Punjabi letters like ੳ, ਅ, ੲ, ਸ, ਹ fall from top like bubbles. You have to pop only ੳ ਅ ੲ letters. This helps kids remember Ura Aira easily. <b>Level 3 - Ka Kha Ga Learning:</b> In this level you learn ਕ ਖ ਗ letters by matching. This is best for small kids age 3 to 10 years.</p>
+
+<h2>How to Play Punjabi Toffee Crush?</h2>
+<p>Playing is very easy. Click on Level 1 button to start. Tap on 3 same toffees. If they are same, they will turn green and you get 1 point. Complete 9 points to win level. In Level 2, bubbles come from top, quickly click on correct letter before it falls down. Game works on both mobile phone and computer. No need to download, play directly on website. No personal data is collected, 100% safe for kids.</p>
+
+<h2>Why this game is special?</h2>
+<p>Unlike other games, this game teaches Punjabi while playing. It has bright colors, sound effects, and Punjabi tadka. We have daily rewards, 100+ levels coming soon, and no harmful ads inside game play area. This game is made by a Punjabi family for all Punjabi families. Our aim is to keep Punjabi language alive for next generation through fun games. We will soon add Punjabi stories, rhymes and quiz also.</p>
+<p>Enjoy playing and don't forget to share with your family and friends!</p>
 </div>
+
 <div class="box" id="menu">
 <h1 style="color:#FF6F00;font-size:36px">ਪੰਜਾਬੀ ਟਾਫੀ</h1>
 <p style="color:#E91E63;font-weight:900">punjabi toffee crush game</p>
@@ -47,6 +56,7 @@ body{background:linear-gradient(180deg,#87CEEB,#FFF176,#FF9800);min-height:100vh
 <button class="btn" style="background:linear-gradient(90deg,#2196F3,#0D47A1)" onclick="start(2)">🫧 Level 2 - Upar Se Bubble</button>
 <button class="btn" style="background:#4CAF50" onclick="enableSound()">🔊 Sound ON</button>
 </div>
+
 <div class="box hidden" id="game">
 <div style="display:flex;justify-content:space-between;font-weight:900"><span id="lv">Level 1</span><span id="sc" style="color:#E91E63">0/9</span></div>
 <div class="bar"><div id="pf" class="f"></div></div>
@@ -55,6 +65,7 @@ body{background:linear-gradient(180deg,#87CEEB,#FFF176,#FF9800);min-height:100vh
 <button class="btn" style="background:#2196F3" onclick="goNext()">⏭️ Next Level</button>
 <button class="btn" style="background:#9E9E9E" onclick="showMenu()">⬅️ Menu</button>
 </div>
+
 <div id="completeModal" class="hidden">
 <div id="completeBox">
 <div style="font-size:40px">🎉🎊✨</div>
@@ -66,11 +77,14 @@ body{background:linear-gradient(180deg,#87CEEB,#FFF176,#FF9800);min-height:100vh
 <button class="btn" style="background:#FF9800" onclick="replayNow()">🔄 Replay</button>
 </div>
 </div>
-<div id="adBox">
-<p style="font-size:11px;color:#999">🙏 Advertisement - Support</p>
-<ins class="adsbygoogle" style="display:inline-block;width:320px;height:90px" data-ad-client="ca-pub-1905215538239803" data-ad-slot="1234567890"></ins>
-<script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
-</div>
+
+<footer style="text-align:center;padding:18px;background:#222;color:#fff;margin-top:25px;">
+<a href="about.html" style="color:white;margin:5px;">About Us</a> |
+<a href="privacy.html" style="color:white;margin:5px;">Privacy Policy</a> |
+<a href="contact.html" style="color:white;margin:5px;">Contact Us</a>
+<p style="font-size:12px;margin-top:10px;">© 2026 Punjabi Toffee Crush - Made with Love for Punjab</p>
+</footer>
+
 <script>
 let level=1,score=0,sel=[],board=[],ac,soundOn=false,fallInterval;
 function enableSound(){soundOn=true;if(!ac)ac=new(window.AudioContext||window.webkitAudioContext)();tone(800);}
@@ -118,7 +132,5 @@ else{let t=[...sel];setTimeout(()=>{t.forEach(s=>all[s].style.background='#fff')
 }}
 function upd(){document.getElementById('sc').innerText=score+'/9';document.getElementById('pf').style.width=score/9*100+'%';}
 </script>
-<footer style="text-align:center;padding:15px;background:#fff;margin-bottom:130px;margin-top:20px;position:relative;z-index:10;">
-<a href="about.html">About Us</a> | <a href="privacy.html">Privacy Policy</a> | <a href="contact.html">Contact Us</a>
 </body>
 </html>
