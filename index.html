@@ -1,160 +1,46 @@
 <!DOCTYPE html>
-<html lang="pa">
+<html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Punjabi Toffee Crush - Perfect 6 Levels</title>
+<title>Punjabi Toffee - Proof</title>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1905215538239803" crossorigin="anonymous"></script>
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{background:#c8e6c9;font-family:Arial;display:flex;justify-content:center;padding-bottom:80px}
-.main{width:100%;max-width:420px;padding:10px}
-.card{background:#fff;border-radius:20px;padding:15px;margin-top:10px;box-shadow:0 6px 18px rgba(0,0,0,.15)}
-.ad{border:2px dashed #ffb300;background:#fff;border-radius:12px;min-height:75px;display:flex;align-items:center;justify-content:center;margin:10px 0}
-.grid{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;margin-top:10px}
-.cell{aspect-ratio:1;background:#fff8e1;border:2px solid #ffcc02;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:24px;cursor:pointer;user-select:none}
-.cell.done{background:#a5d6a7;border-color:#4caf50}
-.cell.sel{border:3px solid #e91e63;transform:scale(1.05)}
-.btn{width:100%;padding:13px;border:none;border-radius:30px;font-weight:bold;margin-top:10px;cursor:pointer}
-.green{background:#4caf50;color:#fff}
-.pink{background:#e91e63;color:#fff}
-.gray{background:#999;color:#fff}
-.levels{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
-.lvl{border:2px solid #ff9800;background:#fffde7;border-radius:14px;padding:14px 5px;text-align:center;cursor:pointer;font-weight:bold;font-size:14px}
-.lvl small{display:block;font-weight:normal;font-size:11px;color:#555;margin-top:4px}
-#fall{height:380px;background:#e1f5fe;border-radius:14px;position:relative;overflow:hidden;display:none;border:2px solid #03a9f4}
-.bubble{position:absolute;background:#fff;padding:7px 14px;border-radius:22px;border:2px solid #e91e63;font-weight:bold;cursor:pointer;box-shadow:0 2px 6px rgba(0,0,0,.15)}
-.foot{position:fixed;bottom:0;left:0;right:0;background:#fff;height:70px;display:flex;align-items:center;justify-content:center;border-top:3px solid #4caf50;z-index:999}
+body{margin:0;background:#c8e6c9;font-family:Arial;display:flex;justify-content:center}
+.main{width:100%;max-width:400px;padding:10px}
+.card{background:#fff;border-radius:18px;padding:14px;margin-top:10px;box-shadow:0 4px 10px rgba(0,0,0,.2)}
+.grid{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;margin-top:12px}
+.cell{aspect-ratio:1;background:#fff8e1;border:2px solid #ffcc02;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:26px;cursor:pointer}
+.cell.done{background:#a5d6a7}
+.lvl{border:2px solid orange;border-radius:12px;padding:12px;text-align:center;background:#fffde7;font-weight:bold;margin:6px 0;cursor:pointer}
+#game{display:none}
+.btn{width:100%;padding:12px;border:none;border-radius:25px;background:#4caf50;color:#fff;font-weight:bold;margin-top:10px}
 </style>
 </head>
 <body>
 <div class="main">
-<div class="ad"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1905215538239803" data-ad-slot="1111111111" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
-
 <div class="card" id="menu">
 <h2 style="text-align:center">🌾 ਪੰਜਾਬੀ ਟਾਫੀ ਕ੍ਰਸ਼</h2>
-<p style="text-align:center;font-size:12px;color:#666">Har Level Nayi Challenge!</p>
-<div class="levels">
-<div class="lvl" onclick="startLevel(0)">🍪 ਮਿਠਾਈ ਮੈਚ<small>Level 1 - Click to 🍬</small></div>
-<div class="lvl" onclick="startLevel(1)">✈️ ਉਡਾਣ ਸ਼ਬਦ<small>Level 2 - UDA Fado</small></div>
-<div class="lvl" onclick="startLevel(2)">🍎 ਫਲਾਂ ਦੀ ਮਿਠਾਸ<small>Level 3 - Match 2 Same</small></div>
-<div class="lvl" onclick="startLevel(3)">🍩 ਟਾਫੀ ਬਣਾਓ<small>Level 4 - Fast Click</small></div>
-<div class="lvl" onclick="startLevel(4)">⭐ ਤਾਰਿਆਂ ਦੀ ਖੇਡ<small>Level 5 - Star Match</small></div>
-<div class="lvl" onclick="startLevel(5)">🌾 ਮਿੱਟੀ ਦੀ ਖੁਸ਼ਬੂ<small>Level 6 - MITTI Fado</small></div>
+<p style="text-align:center;font-size:12px;color:#666">Aap kar sakti ho!</p>
+<div class="lvl" onclick="start(0)">Level 1 - ਮਿਠਾਈ ਮੈਚ</div>
+<div class="lvl" onclick="start(1)">Level 2 - ਉਡਾਣ UDA</div>
+<div class="lvl" onclick="start(2)">Level 3 - ਫਲਾਂ ਦੀ ਮਿਠਾਸ</div>
+<div class="lvl" onclick="start(3)">Level 4 - ਟਾਫੀ ਬਣਾਓ</div>
+<div class="lvl" onclick="start(4)">Level 5 - ਤਾਰਿਆਂ ਦੀ ਖੇਡ</div>
+<div class="lvl" onclick="start(5)">Level 6 - ਮਿੱਟੀ ਦੀ ਖੁਸ਼ਬੂ</div>
 </div>
-<div class="ad"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1905215538239803" data-ad-slot="2222222222" data-ad-format="auto"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
-<p style="text-align:center;font-size:11px;margin-top:8px"><a href="about.html">About</a> | <a href="privacy.html">Privacy Policy</a> | <a href="contact.html">Contact</a></p>
-</div>
-
-<div class="card" id="game" style="display:none">
-<div style="display:flex;justify-content:space-between;align-items:center"><button onclick="goMenu()" style="border:none;background:#eee;padding:7px 14px;border-radius:20px">⬅️ Menu</button><b id="lname"></b><b>⭐ <span id="score">0</span></b></div>
-<p id="hint" style="text-align:center;font-size:12px;color:#444;margin:8px 0"></p>
-<div class="grid" id="grid"></div>
-<div id="fall"></div>
-<div id="win" style="display:none;text-align:center;margin-top:15px;padding:12px;background:#e8f5e9;border-radius:12px;border:2px solid #4caf50">
-<h3>🎉 ਸ਼ਾਬਾਸ਼! Level Complete</h3>
-<div class="ad"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1905215538239803" data-ad-slot="3333333333" data-ad-format="auto"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
-<button class="btn green" onclick="nextLevel()">Next Level ➡️</button>
-<button class="btn gray" onclick="goMenu()">Back to Menu</button>
-</div>
-<button class="btn gray" onclick="startLevel(cur)">🔄 Restart Level</button>
+<div class="card" id="game">
+<div style="display:flex;justify-content:space-between"><button onclick="menu()">⬅️ Menu</button><b id="t"></b><b>⭐<span id="sc">0</span></b></div>
+<div class="grid" id="g"></div>
+<div id="win" style="display:none;text-align:center;margin-top:12px;background:#e8f5e9;padding:12px;border-radius:12px"><h3>🎉 ਸ਼ਾਬਾਸ਼! Level Complete</h3><button class="btn" onclick="nextL()">Next ➡️</button></div>
 </div>
 </div>
-
-<div class="foot"><ins class="adsbygoogle" style="display:inline-block;width:320px;height:50px" data-ad-client="ca-pub-1905215538239803" data-ad-slot="4444444444"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
-
 <script>
-const LEVELS=[
-{ name:"ਮਿਠਾਈ ਮੈਚ", hint:"Toffee pe click karo, 🍬 banao - 12 banao toh win!", type:"click", items:['🍪','🍭','🧁','🍫'], need:12 },
-{ name:"ਉਡਾਣ ਸ਼ਬਦ - UDA", hint:"UDA wali toffee fado, KHED ko chhodo! 10 fado", type:"fall", target:"UDA", need:10 },
-{ name:"ਫਲਾਂ ਦੀ ਮਿਠਾਸ", hint:"2 same fal bagal-bagal select karo, 🍬 banenge! 8 jodi banao", type:"match", items:['🍎','🍓','🍇','🍊'], need:8 },
-{ name:"ਟਾਫੀ ਬਣਾਓ", hint:"Fast click! 15 toffee jaldi se 🍬 banao", type:"click", items:['🍩','🍪','🍦','🧁','🍫'], need:15 },
-{ name:"ਤਾਰਿਆਂ ਦੀ ਖੇਡ", hint:"Same stars ko jodo! 8 jodi", type:"match", items:['⭐','🌙','☀️','🌈','💫'], need:8 },
-{ name:"ਮਿੱਟੀ ਦੀ ਖੁਸ਼ਬੂ - MITTI", hint:"MITTI wali toffee fado! 12 fado", type:"fall", target:"MITTI", need:12 }
-];
-let cur=0, score=0, sel=null, t1=null, t2=null;
-
-function goMenu(){clearInterval(t1);clearInterval(t2);document.getElementById('game').style.display='none';document.getElementById('menu').style.display='block';}
-function startLevel(n){
-cur=n; score=0; sel=null;
-document.getElementById('score').innerText=0;
-document.getElementById('menu').style.display='none';
-document.getElementById('game').style.display='block';
-document.getElementById('win').style.display='none';
-document.getElementById('grid').style.display='grid';
-document.getElementById('grid').innerHTML='';
-document.getElementById('fall').style.display='none';
-document.getElementById('fall').innerHTML='';
-clearInterval(t1);clearInterval(t2);
-let L=LEVELS[n];
-document.getElementById('lname').innerText=L.name;
-document.getElementById('hint').innerText=L.hint;
-if(L.type==='click') initClick(L);
-else if(L.type==='match') initMatch(L);
-else initFall(L);
-}
-function initClick(L){
-let g=document.getElementById('grid');
-for(let i=0;i<36;i++){
-let c=document.createElement('div');c.className='cell';
-c.innerText=L.items[Math.floor(Math.random()*L.items.length)];
-c.onclick=()=>{
-if(c.innerText!=='🍬'){
-c.innerText='🍬';c.classList.add('done');
-score++;document.getElementById('score').innerText=score;
-if(score>=L.need) win();
-}
-};
-g.appendChild(c);
-}
-}
-function initMatch(L){
-let g=document.getElementById('grid');
-let arr=[];for(let i=0;i<36;i++)arr.push(L.items[Math.floor(Math.random()*L.items.length)]);
-for(let i=0;i<36;i++){
-let c=document.createElement('div');c.className='cell';c.innerText=arr[i];
-c.onclick=()=>{
-if(c.classList.contains('done')) return;
-if(sel===null){sel=c;c.classList.add('sel');}
-else{
-if(sel===c){sel.classList.remove('sel');sel=null;return;}
-if(sel.innerText===c.innerText){
-sel.innerText='🍬';c.innerText='🍬';
-sel.classList.add('done');c.classList.add('done');
-sel.classList.remove('sel');sel=null;
-score++;document.getElementById('score').innerText=score;
-if(score>=L.need) win();
-}else{sel.classList.remove('sel');sel=c;c.classList.add('sel');}
-}
-};
-g.appendChild(c);
-}
-}
-function initFall(L){
-document.getElementById('grid').style.display='none';
-let box=document.getElementById('fall');box.style.display='block';
-let s=0;
-let other=L.target==='UDA'?'KHED':'UDA';
-t1=setInterval(()=>{
-let d=document.createElement('div');d.className='bubble';
-let w=Math.random()<0.65?L.target:other;
-d.innerText='🍬 '+w;d.dataset.w=w;
-d.style.left=Math.random()*220+'px';d.style.top='0px';
-d.onclick=()=>{
-if(d.dataset.w===L.target){s++;document.getElementById('score').innerText=s;if(s>=L.need) win();}
-d.remove();
-};
-box.appendChild(d);
-},850);
-t2=setInterval(()=>{
-box.querySelectorAll('.bubble').forEach(el=>{
-let tp=parseInt(el.style.top||0)+2;el.style.top=tp+'px';
-if(tp>350) el.remove();
-});
-},35);
-}
-function win(){clearInterval(t1);clearInterval(t2);document.getElementById('win').style.display='block';}
-function nextLevel(){if(cur<LEVELS.length-1)startLevel(cur+1);else{alert('All 6 Levels Complete! 🎉');goMenu();}}
+let cur=0,score=0;
+let names=["ਮਿਠਾਈ ਮੈਚ","ਉਡਾਣ UDA","ਫਲਾਂ ਦੀ ਮਿਠਾਸ","ਟਾਫੀ ਬਣਾਓ","ਤਾਰਿਆਂ ਦੀ ਖੇਡ","ਮਿੱਟੀ ਦੀ ਖੁਸ਼ਬੂ"];
+function menu(){document.getElementById('game').style.display='none';document.getElementById('menu').style.display='block';}
+function start(n){cur=n;score=0;document.getElementById('sc').innerText=0;document.getElementById('menu').style.display='none';document.getElementById('game').style.display='block';document.getElementById('win').style.display='none';document.getElementById('t').innerText=names[n];let grid=document.getElementById('g');grid.innerHTML='';let e=['🍪','🍭','🍎','🍩','⭐','🌾'];for(let i=0;i<36;i++){let d=document.createElement('div');d.className='cell';d.innerText=e[Math.floor(Math.random()*e.length)];d.onclick=function(){if(d.innerText!='🍬'){d.innerText='🍬';d.classList.add('done');score++;document.getElementById('sc').innerText=score;if(score>=12)document.getElementById('win').style.display='block';}};grid.appendChild(d);}}
+function nextL(){if(cur<5)start(cur+1);else{menu();alert('All 6 Levels Done! Aapne prove kar diya! 🎉');}}
 </script>
 </body>
 </html>
