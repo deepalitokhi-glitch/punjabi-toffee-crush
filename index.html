@@ -4,161 +4,105 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Punjabi Toffee Crush - ਪੰਜਾਬੀ ਟਾਫੀ ਕ੍ਰਸ਼</title>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9772875921250783" crossorigin="anonymous"></script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1905215538239803" crossorigin="anonymous"></script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
-body{background:#c8e6c9;display:flex;justify-content:center;min-height:100vh;padding-bottom:90px}
-.main{width:100%;max-width:430px;background:#c8e6c9}
-.top-ad{width:100%;background:#fff;min-height:90px;border:2px dashed #ffcc02;border-radius:12px;margin:10px 0;display:flex;align-items:center;justify-content:center}
-.card{background:#fff;border-radius:20px;padding:14px;margin:10px;box-shadow:0 8px 25px rgba(0,0,0,.15)}
-h1{text-align:center;font-size:22px}
-.menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:12px 0}
-.lvl{border:2px solid #ffcc02;background:#fff8e1;border-radius:14px;padding:12px 5px;text-align:center;cursor:pointer;font-weight:bold}
-.lvl span{font-size:11px;font-weight:normal;display:block;margin-top:3px}
-.game-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;background:#fff3e0;padding:8px;border-radius:12px}
-.cell{aspect-ratio:1;background:#fff;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:24px;cursor:pointer;border:2px solid #ffe0b2;transition:0.2s}
+body{background:#c8e6c9;display:flex;justify-content:center;padding-bottom:100px}
+.main{width:100%;max-width:420px}
+.ad{width:100%;background:#fff;min-height:80px;border:2px dashed #ffcc02;border-radius:12px;margin:8px 0;display:flex;align-items:center;justify-content:center;flex-direction:column}
+.card{background:#fff;border-radius:22px;padding:16px;margin:8px;box-shadow:0 8px 25px rgba(0,0,0,.15);text-align:center}
+.levels{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:12px 0}
+.lvl{border:2px solid #ffcc02;background:#fff8e1;border-radius:14px;padding:12px 4px;cursor:pointer;font-weight:bold;font-size:13px}
+.lvl small{display:block;font-weight:normal;font-size:11px;color:#666;margin-top:3px}
+.grid{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;background:#fff3e0;padding:8px;border-radius:12px;margin:10px 0}
+.cell{aspect-ratio:1;background:#fff;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:26px;cursor:pointer;border:2px solid #ffe0b2}
 .cell.sel{border-color:#ff4081;transform:scale(1.1)}
 .cell.candy{background:#e8f5e9;border-color:#4caf50}
-.btn{width:100%;background:#ff4081;color:#fff;border:none;padding:12px;border-radius:50px;font-weight:bold;margin-top:10px;cursor:pointer}
-.btn2{background:#4caf50}
-#fallArea{position:relative;width:100%;height:380px;background:#e1f5fe;border-radius:12px;overflow:hidden;border:2px solid #4caf50;display:none}
-.bubble{position:absolute;background:#fff;border-radius:30px;padding:6px 12px;border:2px solid #ff4081;font-weight:bold;cursor:pointer;animation:pop 0.2s}
-@keyframes pop{0%{transform:scale(0)}100%{transform:scale(1)}}
-.ad-middle{background:#e3f2fd;border:2px solid #2196f3;border-radius:12px;padding:10px;text-align:center;margin:10px 0;min-height:250px}
-.footer-links{display:flex;justify-content:center;gap:15px;margin:15px 0;font-size:13px}
-.footer-links a{color:#2e7d32;text-decoration:none;font-weight:bold}
-.footer-ad{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:3px solid #4caf50;height:85px;display:flex;align-items:center;justify-content:center;z-index:999}
-.sound-btn{position:fixed;top:10px;right:10px;background:#fff;border-radius:50%;width:40px;height:40px;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:1000;font-size:20px}
+.btn{width:100%;background:#ff4081;color:#fff;border:none;padding:13px;border-radius:50px;font-weight:bold;margin-top:8px;cursor:pointer}
+.btn-green{background:#4caf50}
+.btn-gray{background:#888}
+.btn-orange{background:#ff9800}
+#fallArea{position:relative;width:100%;height:380px;background:#e1f5fe;border-radius:12px;overflow:hidden;border:2px solid #4caf50;display:none;margin:10px 0}
+.bubble{position:absolute;background:#fff;border-radius:30px;padding:7px 14px;border:2px solid #ff4081;font-weight:bold;cursor:pointer}
+.footer{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:3px solid #4caf50;min-height:85px;display:flex;align-items:center;justify-content:center;z-index:999}
+.links a{margin:0 8px;color:#2e7d32;text-decoration:none;font-weight:bold;font-size:12px}
+#soundBtn{position:fixed;top:10px;right:10px;background:#fff;width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:1000;box-shadow:0 2px 8px rgba(0,0,0,.2)}
 </style>
 </head>
 <body>
-<div class="sound-btn" onclick="toggleSound()" id="soundBtn">🔊</div>
+<div id="soundBtn" onclick="toggleSound()">🔊</div>
 <div class="main">
-<div class="top-ad">
-<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9772875921250783" data-ad-slot="1234567890" data-ad-format="auto" data-full-width-responsive="true"></ins>
-<script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+<div class="ad"><small style="font-size:9px;color:#999">Top Ad</small>
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1905215538239803" data-ad-slot="1111111111" data-ad-format="auto" data-full-width-responsive="true"></ins>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+
+<div class="card" id="menu">
+<h2>🌾 ਪੰਜਾਬੀ ਟਾਫੀ ਕ੍ਰਸ਼</h2>
+<p style="font-size:11px;color:#666">Khedo Te Punjabi Sikho!</p>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:12px 0">
+<button class="btn btn-orange" onclick="resumeGame()">▶️ Resume Game</button>
+<button class="btn btn-gray" onclick="resetProgress()">🔄 Reset</button>
+</div>
+<div class="levels" id="levelMenu"></div>
+<div class="ad"><small style="font-size:9px;color:#999">Menu Ad</small>
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1905215538239803" data-ad-slot="2222222222" data-ad-format="auto"></ins>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+<div class="links"><a href="about.html">About</a><a href="privacy.html">Privacy Policy</a><a href="contact.html">Contact</a></div>
+<p style="font-size:9px;color:#999;margin-top:8px">© Punjabi Toffee Crush 2025</p>
 </div>
 
-<div class="card" id="menuCard">
-<h1>🌾 ਪੰਜਾਬੀ ਟਾਫੀ ਕ੍ਰਸ਼</h1>
-<p style="text-align:center;font-size:12px;margin:5px 0">Punjabi Mithaiyan Khao Te Game Jitto!</p>
-<div class="menu-grid" id="levelMenu"></div>
-<div class="footer-links">
-<a href="about.html">About</a> |
-<a href="privacy.html">Privacy Policy</a> |
-<a href="contact.html">Contact</a>
-</div>
-<p style="text-align:center;font-size:10px;color:#777;margin-top:10px">© 2025 Punjabi Toffee Crush - All Rights Reserved</p>
-</div>
-
-<div class="card" id="gameCard" style="display:none">
-<div style="display:flex;justify-content:space-between;font-weight:bold;align-items:center">
-<button onclick="goMenu()" style="border:none;background:#eee;padding:5px 10px;border-radius:20px;cursor:pointer">⬅️ Menu</button>
-<span id="levelTitle">Level 1</span>
-<span>⭐ <b id="score">0</b></span>
-</div>
-
-<div class="ad-middle" style="min-height:60px;margin:10px 0">
-<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9772875921250783" data-ad-slot="1234567891" data-ad-format="auto"></ins>
-<script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
-</div>
-
-<div class="game-grid" id="grid"></div>
+<div class="card" id="game" style="display:none">
+<div style="display:flex;justify-content:space-between;font-weight:bold"><button onclick="goMenu()" style="border:none;background:#eee;padding:6px 12px;border-radius:20px">⬅️ Menu</button><span id="ltitle"></span><span>⭐<b id="score">0</b></span></div>
+<p id="hint" style="font-size:11px;margin:6px 0;color:#555"></p>
+<div class="ad" style="min-height:55px"><small style="font-size:9px;color:#999">Game Ad</small>
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1905215538239803" data-ad-slot="3333333333" data-ad-format="auto"></ins>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+<div class="grid" id="grid"></div>
 <div id="fallArea"></div>
-
-<div class="ad-middle" id="winBox" style="display:none">
+<div id="winBox" style="display:none;text-align:center;background:#e3f2fd;border:2px solid #2196f3;border-radius:12px;padding:12px;margin:10px 0">
 <h3>🎉 ਸ਼ਾਬਾਸ਼! Level Complete</h3>
-<p style="font-size:12px;margin:8px 0">Agla level khelne se pehle ad dekho</p>
-<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9772875921250783" data-ad-slot="1234567892" data-ad-format="auto" data-full-width-responsive="true"></ins>
-<script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
-<button class="btn btn2" onclick="nextLevel()">Next Level ➡️</button>
-<button class="btn" style="background:#999" onclick="goMenu()">Menu</button>
+<div class="ad" style="min-height:180px"><small>Level Complete Ad</small>
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1905215538239803" data-ad-slot="4444444444" data-ad-format="auto"></ins>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+<button class="btn btn-green" onclick="nextLevel()">Next Level ➡️</button>
+<button class="btn btn-gray" onclick="goMenu()">⬅️ Back to Menu</button>
+</div>
+<button class="btn btn-gray" onclick="restart()">🔄 Restart Level</button>
+</div>
 </div>
 
-<button class="btn" style="background:#888" onclick="restart()">🔄 Restart Level</button>
-</div>
-</div>
-
-<div class="footer-ad">
-<ins class="adsbygoogle" style="display:inline-block;width:320px;height:50px" data-ad-client="ca-pub-9772875921250783" data-ad-slot="1234567893"></ins>
+<div class="footer">
+<ins class="adsbygoogle" style="display:inline-block;width:320px;height:50px" data-ad-client="ca-pub-1905215538239803" data-ad-slot="5555555555"></ins>
 <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
 </div>
 
 <script>
 const LEVELS=[
-{id:1, title:"ਮਿਠਾਈ ਮੈਚ", pun:"Level 1 - Toffee Jodo", type:"match", items:['🍪','🧁','🍭','🍫']},
-{id:2, title:"ਸ਼ਬਦ ਫੜੋ", pun:"Level 2 - UDA Shabad", type:"fall", target:"UDA", words:['UDA','KHED','MITTI']},
-{id:3, title:"ਫਲ ਮੈਚ", pun:"Level 3 - Fruit Jodo", type:"match", items:['🍎','🍓','🍇','🍊']},
-{id:4, title:"ਟਾਫੀ ਕਲਿੱਕ", pun:"Level 4 - Candy Click", type:"click", items:['🍪','🍦','🍩']},
-{id:5, title:"ਤਾਰਾ ਮੈਚ", pun:"Level 5 - Tara Jodo", type:"match", items:['⭐','🌙','☀️','🌈']},
-{id:6, title:"ਮਿੱਟੀ ਸ਼ਬਦ", pun:"Level 6 - Mitti Shabad", type:"fall", target:"MITTI", words:['MITTI','PANI','KHET']}
+{id:1,name:"ਮਿਠਾਈ ਮੈਚ",en:"Level 1 - Mithai Match",type:"match",items:['🍪','🧁','🍭','🍫']},
+{id:2,name:"ਉਡਾਣ ਸ਼ਬਦ",en:"Level 2 - UDA Shabad",type:"fall",target:"UDA",words:['UDA','KHED','MITTI']},
+{id:3,name:"ਫਲਾਂ ਦੀ ਮਿਠਾਸ",en:"Level 3 - Fruit Match",type:"match",items:['🍎','🍓','🍇','🍊']},
+{id:4,name:"ਟਾਫੀ ਬਣਾਓ",en:"Level 4 - Click Toffee",type:"click",items:['🍪','🍦','🍩','🧁','🍫']},
+{id:5,name:"ਤਾਰਿਆਂ ਦੀ ਖੇਡ",en:"Level 5 - Tara Match",type:"match",items:['⭐','🌙','☀️','🌈']},
+{id:6,name:"ਮਿੱਟੀ ਦੀ ਖੁਸ਼ਬੂ",en:"Level 6 - Mitti Shabad",type:"fall",target:"MITTI",words:['MITTI','PANI','UDA']}
 ];
-let cur=0, board=[], score=0, sel=null, soundOn=true, fallTimer=null, moveTimer=null;
+let cur=parseInt(localStorage.getItem('ptc_cur')||0),board=[],score=0,sel=null,soundOn=true,spawnT=null,moveT=null;
 const CANDY='🍬';
-
-function playBeep(){if(!soundOn)return; try{let a=new (window.AudioContext||window.webkitAudioContext)();let o=a.createOscillator();o.frequency.value=600;o.connect(a.destination);o.start();setTimeout(()=>o.stop(),100)}catch(e){}}
-function toggleSound(){soundOn=!soundOn; document.getElementById('soundBtn').innerText=soundOn?'🔊':'🔇'}
-
-function buildMenu(){
-let m=document.getElementById('levelMenu'); m.innerHTML='';
-LEVELS.forEach((lv,i)=>{
-let d=document.createElement('div'); d.className='lvl';
-d.innerHTML=lv.title+'<span>'+lv.pun+'</span>';
-d.onclick=()=>startLevel(i); m.appendChild(d);
-});
-} buildMenu();
-
-function goMenu(){document.getElementById('gameCard').style.display='none'; document.getElementById('menuCard').style.display='block'; clearInterval(fallTimer); clearInterval(moveTimer);}
-function startLevel(i){cur=i; document.getElementById('menuCard').style.display='none'; document.getElementById('gameCard').style.display='block'; restart();}
-function nextLevel(){if(cur<LEVELS.length-1) startLevel(cur+1); else {alert('🎉 Saare Level Complete!'); goMenu();}}
-
-function restart(){
-let lv=LEVELS[cur]; document.getElementById('levelTitle').innerText=lv.title; document.getElementById('score').innerText='0'; score=0; sel=null;
-document.getElementById('winBox').style.display='none'; document.getElementById('grid').style.display='grid'; document.getElementById('fallArea').style.display='none';
-document.getElementById('fallArea').innerHTML=''; clearInterval(fallTimer); clearInterval(moveTimer);
-if(lv.type==='click') initClick(lv); else if(lv.type==='match') initMatch(lv); else initFall(lv);
-}
-
-function initClick(lv){
-board=[]; let g=document.getElementById('grid'); g.innerHTML=''; score=0;
-for(let i=0;i<36;i++){let it=lv.items[Math.floor(Math.random()*lv.items.length)]; board.push(it);
-let d=document.createElement('div'); d.className='cell'; d.innerText=it;
-d.onclick=()=>{if(board[i]!==CANDY){board[i]=CANDY; d.innerText=CANDY; d.classList.add('candy'); playBeep(); score++; document.getElementById('score').innerText=score; if(score>=36) win();}}; g.appendChild(d);}
-}
-
-function initMatch(lv){
-board=[]; let g=document.getElementById('grid'); g.innerHTML=''; sel=null;
-for(let i=0;i<36;i++){let it=lv.items[Math.floor(Math.random()*lv.items.length)]; board.push(it);
-let d=document.createElement('div'); d.className='cell'; d.innerText=it; d.onclick=()=>clickMatch(i); g.appendChild(d);}
-}
-function clickMatch(i){
-let cells=document.querySelectorAll('#grid.cell');
-if(sel===null){sel=i; cells[i].classList.add('sel');}
-else{
-if(sel===i){cells[sel].classList.remove('sel'); sel=null; return;}
-let ok=Math.abs(sel-i)===1 || Math.abs(sel-i)===6;
-if(ok){let tmp=board[sel]; board[sel]=board[i]; board[i]=tmp; cells[sel].innerText=board[sel]; cells[i].innerText=board[i]; checkMatch();}
-cells[sel].classList.remove('sel'); sel=null;
-}
-}
-function checkMatch(){
-let cells=document.querySelectorAll('#grid.cell'); let toRemove=[];
-for(let r=0;r<6;r++) for(let c=0;c<4;c++){let idx=r*6+c; let v=board[idx]; if(v!==CANDY && board[idx+1]===v && board[idx+2]===v) toRemove.push(idx,idx+1,idx+2);}
-if(toRemove.length>=3){playBeep(); toRemove.forEach(idx=>{board[idx]=CANDY; cells[idx].innerText=CANDY; cells[idx].classList.add('candy');}); score+=toRemove.length; document.getElementById('score').innerText=score; if(board.every(v=>v===CANDY)) win();}
-}
-
-function initFall(lv){
-document.getElementById('grid').style.display='none'; document.getElementById('fallArea').style.display='block'; let area=document.getElementById('fallArea'); score=0;
-fallTimer=setInterval(()=>{
-let div=document.createElement('div'); let w=Math.random()<0.6?lv.target:lv.words[Math.floor(Math.random()*lv.words.length)];
-div.className='bubble'; div.innerHTML='🍬 '+w; div.dataset.w=w; div.style.left=Math.random()*180+'px'; div.style.top='0px';
-div.onclick=()=>{if(div.dataset.w===lv.target){playBeep(); score++; document.getElementById('score').innerText=score; div.remove(); if(score>=10) win();} else div.remove();};
-area.appendChild(div);
-},800);
-moveTimer=setInterval(()=>{document.querySelectorAll('.bubble').forEach(el=>{el.style.top=(parseInt(el.style.top||0)+3)+'px'; if(parseInt(el.style.top)>360) el.remove();});},40);
-}
-
-function win(){clearInterval(fallTimer); clearInterval(moveTimer); document.getElementById('winBox').style.display='block'; document.getElementById('grid').style.display='none'; document.getElementById('fallArea').style.display='none'; playBeep();}
+function toggleSound(){soundOn=!soundOn;document.getElementById('soundBtn').innerText=soundOn?'🔊':'🔇'}
+function beep(f=600){if(!soundOn)return;try{let a=new(window.AudioContext||window.webkitAudioContext)();let o=a.createOscillator();o.frequency.value=f;o.connect(a.destination);o.start();setTimeout(()=>o.stop(),120)}catch(e){}}
+function buildMenu(){let m=document.getElementById('levelMenu');m.innerHTML='';LEVELS.forEach((lv,i)=>{let d=document.createElement('div');d.className='lvl';d.innerHTML=lv.name+'<small>'+lv.en+'</small>';d.onclick=()=>startLevel(i);m.appendChild(d);});}buildMenu();
+function saveProgress(){localStorage.setItem('ptc_cur',cur);}
+function resumeGame(){startLevel(cur);}
+function resetProgress(){localStorage.removeItem('ptc_cur');cur=0;alert('Progress Reset!');}
+function goMenu(){document.getElementById('game').style.display='none';document.getElementById('menu').style.display='block';clearInterval(spawnT);clearInterval(moveT);}
+function startLevel(i){cur=i;saveProgress();document.getElementById('menu').style.display='none';document.getElementById('game').style.display='block';restart();}
+function nextLevel(){if(cur<LEVELS.length-1)startLevel(cur+1);else{alert('All Levels Complete!');goMenu();}}
+function restart(){let lv=LEVELS[cur];document.getElementById('ltitle').innerText=lv.name;document.getElementById('hint').innerText=lv.type==='click'?'Click karke 🍪 ko 🍬 banao!':lv.type==='fall'?lv.target+' wali toffee fado!':'3 same jodo!';document.getElementById('score').innerText=0;score=0;sel=null;document.getElementById('winBox').style.display='none';document.getElementById('grid').style.display='grid';document.getElementById('fallArea').style.display='none';document.getElementById('fallArea').innerHTML='';clearInterval(spawnT);clearInterval(moveT);if(lv.type==='click')initClick(lv);else if(lv.type==='match')initMatch(lv);else initFall(lv);}
+function initClick(lv){board=[];let g=document.getElementById('grid');g.innerHTML='';for(let i=0;i<36;i++){let it=lv.items[Math.floor(Math.random()*lv.items.length)];board.push(it);let d=document.createElement('div');d.className='cell';d.innerText=it;d.onclick=()=>{if(board[i]!==CANDY){board[i]=CANDY;d.innerText=CANDY;d.classList.add('candy');beep(800);score++;document.getElementById('score').innerText=score;if(score>=36)win();}};g.appendChild(d);}}
+function initMatch(lv){board=[];let g=document.getElementById('grid');g.innerHTML='';sel=null;for(let i=0;i<36;i++){let it=lv.items[Math.floor(Math.random()*lv.items.length)];board.push(it);let d=document.createElement('div');d.className='cell';d.innerText=it;d.onclick=()=>clickMatch(i);g.appendChild(d);}}
+function clickMatch(i){let cells=document.querySelectorAll('.cell');if(sel===null){sel=i;cells[i].classList.add('sel');}else{if(sel===i){cells[sel].classList.remove('sel');sel=null;return;}let ok=Math.abs(sel-i)===1||Math.abs(sel-i)===6;if(ok){let tmp=board[sel];board[sel]=board[i];board[i]=tmp;cells[sel].innerText=board[sel];cells[i].innerText=board[i];let m=findMatches();if(m.length>=3){beep(900);m.forEach(idx=>{board[idx]=CANDY;cells[idx].innerText=CANDY;cells[idx].classList.add('candy');});score+=m.length;document.getElementById('score').innerText=score;if(board.every(v=>v===CANDY))win();}else{let tmp2=board[sel];board[sel]=board[i];board[i]=tmp2;cells[sel].innerText=board[sel];cells[i].innerText=board[i];beep(200);}}cells[sel].classList.remove('sel');sel=null;}}
+function findMatches(){let s=new Set();for(let r=0;r<6;r++)for(let c=0;c<4;c++){let id=r*6+c;if(board[id]===CANDY)continue;if(board[id+1]===board[id]&&board[id+2]===board[id]){s.add(id);s.add(id+1);s.add(id+2);}}return Array.from(s);}
+let s2=0;function initFall(lv){s2=0;document.getElementById('grid').style.display='none';document.getElementById('fallArea').style.display='block';let area=document.getElementById('fallArea');spawnT=setInterval(()=>{let div=document.createElement('div');let w=Math.random()<0.6?lv.target:lv.words[Math.floor(Math.random()*lv.words.length)];div.className='bubble';div.innerHTML='🍬 '+w;div.dataset.w=w;div.style.left=Math.random()*180+'px';div.style.top='0px';div.onclick=()=>{if(div.dataset.w===lv.target){beep(900);s2++;document.getElementById('score').innerText=s2;div.remove();if(s2>=10)win();}else{beep(200);div.remove();}};area.appendChild(div);},800);moveT=setInterval(()=>{document.querySelectorAll('.bubble').forEach(el=>{el.style.top=(parseInt(el.style.top||0)+3)+'px';if(parseInt(el.style.top)>360)el.remove();});},40);}
+function win(){clearInterval(spawnT);clearInterval(moveT);document.getElementById('winBox').style.display='block';document.getElementById('grid').style.display='none';document.getElementById('fallArea').style.display='none';beep(1200);}
 </script>
 </body>
 </html>
