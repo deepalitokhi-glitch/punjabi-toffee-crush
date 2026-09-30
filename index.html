@@ -3,106 +3,158 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Punjabi Toffee Crush - ਪੰਜਾਬੀ ਟਾਫੀ ਕ੍ਰਸ਼</title>
+<title>Punjabi Toffee Crush - Perfect 6 Levels</title>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1905215538239803" crossorigin="anonymous"></script>
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
-body{background:#c8e6c9;display:flex;justify-content:center;padding-bottom:100px}
-.main{width:100%;max-width:420px}
-.ad{width:100%;background:#fff;min-height:80px;border:2px dashed #ffcc02;border-radius:12px;margin:8px 0;display:flex;align-items:center;justify-content:center;flex-direction:column}
-.card{background:#fff;border-radius:22px;padding:16px;margin:8px;box-shadow:0 8px 25px rgba(0,0,0,.15);text-align:center}
-.levels{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:12px 0}
-.lvl{border:2px solid #ffcc02;background:#fff8e1;border-radius:14px;padding:12px 4px;cursor:pointer;font-weight:bold;font-size:13px}
-.lvl small{display:block;font-weight:normal;font-size:11px;color:#666;margin-top:3px}
-.grid{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;background:#fff3e0;padding:8px;border-radius:12px;margin:10px 0}
-.cell{aspect-ratio:1;background:#fff;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:26px;cursor:pointer;border:2px solid #ffe0b2}
-.cell.sel{border-color:#ff4081;transform:scale(1.1)}
-.cell.candy{background:#e8f5e9;border-color:#4caf50}
-.btn{width:100%;background:#ff4081;color:#fff;border:none;padding:13px;border-radius:50px;font-weight:bold;margin-top:8px;cursor:pointer}
-.btn-green{background:#4caf50}
-.btn-gray{background:#888}
-.btn-orange{background:#ff9800}
-#fallArea{position:relative;width:100%;height:380px;background:#e1f5fe;border-radius:12px;overflow:hidden;border:2px solid #4caf50;display:none;margin:10px 0}
-.bubble{position:absolute;background:#fff;border-radius:30px;padding:7px 14px;border:2px solid #ff4081;font-weight:bold;cursor:pointer}
-.footer{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:3px solid #4caf50;min-height:85px;display:flex;align-items:center;justify-content:center;z-index:999}
-.links a{margin:0 8px;color:#2e7d32;text-decoration:none;font-weight:bold;font-size:12px}
-#soundBtn{position:fixed;top:10px;right:10px;background:#fff;width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:1000;box-shadow:0 2px 8px rgba(0,0,0,.2)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#c8e6c9;font-family:Arial;display:flex;justify-content:center;padding-bottom:80px}
+.main{width:100%;max-width:420px;padding:10px}
+.card{background:#fff;border-radius:20px;padding:15px;margin-top:10px;box-shadow:0 6px 18px rgba(0,0,0,.15)}
+.ad{border:2px dashed #ffb300;background:#fff;border-radius:12px;min-height:75px;display:flex;align-items:center;justify-content:center;margin:10px 0}
+.grid{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;margin-top:10px}
+.cell{aspect-ratio:1;background:#fff8e1;border:2px solid #ffcc02;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:24px;cursor:pointer;user-select:none}
+.cell.done{background:#a5d6a7;border-color:#4caf50}
+.cell.sel{border:3px solid #e91e63;transform:scale(1.05)}
+.btn{width:100%;padding:13px;border:none;border-radius:30px;font-weight:bold;margin-top:10px;cursor:pointer}
+.green{background:#4caf50;color:#fff}
+.pink{background:#e91e63;color:#fff}
+.gray{background:#999;color:#fff}
+.levels{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+.lvl{border:2px solid #ff9800;background:#fffde7;border-radius:14px;padding:14px 5px;text-align:center;cursor:pointer;font-weight:bold;font-size:14px}
+.lvl small{display:block;font-weight:normal;font-size:11px;color:#555;margin-top:4px}
+#fall{height:380px;background:#e1f5fe;border-radius:14px;position:relative;overflow:hidden;display:none;border:2px solid #03a9f4}
+.bubble{position:absolute;background:#fff;padding:7px 14px;border-radius:22px;border:2px solid #e91e63;font-weight:bold;cursor:pointer;box-shadow:0 2px 6px rgba(0,0,0,.15)}
+.foot{position:fixed;bottom:0;left:0;right:0;background:#fff;height:70px;display:flex;align-items:center;justify-content:center;border-top:3px solid #4caf50;z-index:999}
 </style>
 </head>
 <body>
-<div id="soundBtn" onclick="toggleSound()">🔊</div>
 <div class="main">
-<div class="ad"><small style="font-size:9px;color:#999">Top Ad</small>
-<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1905215538239803" data-ad-slot="1111111111" data-ad-format="auto" data-full-width-responsive="true"></ins>
-<script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+<div class="ad"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1905215538239803" data-ad-slot="1111111111" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
 
 <div class="card" id="menu">
-<h2>🌾 ਪੰਜਾਬੀ ਟਾਫੀ ਕ੍ਰਸ਼</h2>
-<p style="font-size:11px;color:#666">Khedo Te Punjabi Sikho!</p>
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:12px 0">
-<button class="btn btn-orange" onclick="resumeGame()">▶️ Resume Game</button>
-<button class="btn btn-gray" onclick="resetProgress()">🔄 Reset</button>
+<h2 style="text-align:center">🌾 ਪੰਜਾਬੀ ਟਾਫੀ ਕ੍ਰਸ਼</h2>
+<p style="text-align:center;font-size:12px;color:#666">Har Level Nayi Challenge!</p>
+<div class="levels">
+<div class="lvl" onclick="startLevel(0)">🍪 ਮਿਠਾਈ ਮੈਚ<small>Level 1 - Click to 🍬</small></div>
+<div class="lvl" onclick="startLevel(1)">✈️ ਉਡਾਣ ਸ਼ਬਦ<small>Level 2 - UDA Fado</small></div>
+<div class="lvl" onclick="startLevel(2)">🍎 ਫਲਾਂ ਦੀ ਮਿਠਾਸ<small>Level 3 - Match 2 Same</small></div>
+<div class="lvl" onclick="startLevel(3)">🍩 ਟਾਫੀ ਬਣਾਓ<small>Level 4 - Fast Click</small></div>
+<div class="lvl" onclick="startLevel(4)">⭐ ਤਾਰਿਆਂ ਦੀ ਖੇਡ<small>Level 5 - Star Match</small></div>
+<div class="lvl" onclick="startLevel(5)">🌾 ਮਿੱਟੀ ਦੀ ਖੁਸ਼ਬੂ<small>Level 6 - MITTI Fado</small></div>
 </div>
-<div class="levels" id="levelMenu"></div>
-<div class="ad"><small style="font-size:9px;color:#999">Menu Ad</small>
-<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1905215538239803" data-ad-slot="2222222222" data-ad-format="auto"></ins>
-<script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
-<div class="links"><a href="about.html">About</a><a href="privacy.html">Privacy Policy</a><a href="contact.html">Contact</a></div>
-<p style="font-size:9px;color:#999;margin-top:8px">© Punjabi Toffee Crush 2025</p>
+<div class="ad"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1905215538239803" data-ad-slot="2222222222" data-ad-format="auto"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+<p style="text-align:center;font-size:11px;margin-top:8px"><a href="about.html">About</a> | <a href="privacy.html">Privacy Policy</a> | <a href="contact.html">Contact</a></p>
 </div>
 
 <div class="card" id="game" style="display:none">
-<div style="display:flex;justify-content:space-between;font-weight:bold"><button onclick="goMenu()" style="border:none;background:#eee;padding:6px 12px;border-radius:20px">⬅️ Menu</button><span id="ltitle"></span><span>⭐<b id="score">0</b></span></div>
-<p id="hint" style="font-size:11px;margin:6px 0;color:#555"></p>
-<div class="ad" style="min-height:55px"><small style="font-size:9px;color:#999">Game Ad</small>
-<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1905215538239803" data-ad-slot="3333333333" data-ad-format="auto"></ins>
-<script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+<div style="display:flex;justify-content:space-between;align-items:center"><button onclick="goMenu()" style="border:none;background:#eee;padding:7px 14px;border-radius:20px">⬅️ Menu</button><b id="lname"></b><b>⭐ <span id="score">0</span></b></div>
+<p id="hint" style="text-align:center;font-size:12px;color:#444;margin:8px 0"></p>
 <div class="grid" id="grid"></div>
-<div id="fallArea"></div>
-<div id="winBox" style="display:none;text-align:center;background:#e3f2fd;border:2px solid #2196f3;border-radius:12px;padding:12px;margin:10px 0">
+<div id="fall"></div>
+<div id="win" style="display:none;text-align:center;margin-top:15px;padding:12px;background:#e8f5e9;border-radius:12px;border:2px solid #4caf50">
 <h3>🎉 ਸ਼ਾਬਾਸ਼! Level Complete</h3>
-<div class="ad" style="min-height:180px"><small>Level Complete Ad</small>
-<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1905215538239803" data-ad-slot="4444444444" data-ad-format="auto"></ins>
-<script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
-<button class="btn btn-green" onclick="nextLevel()">Next Level ➡️</button>
-<button class="btn btn-gray" onclick="goMenu()">⬅️ Back to Menu</button>
+<div class="ad"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1905215538239803" data-ad-slot="3333333333" data-ad-format="auto"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+<button class="btn green" onclick="nextLevel()">Next Level ➡️</button>
+<button class="btn gray" onclick="goMenu()">Back to Menu</button>
 </div>
-<button class="btn btn-gray" onclick="restart()">🔄 Restart Level</button>
+<button class="btn gray" onclick="startLevel(cur)">🔄 Restart Level</button>
 </div>
 </div>
 
-<div class="footer">
-<ins class="adsbygoogle" style="display:inline-block;width:320px;height:50px" data-ad-client="ca-pub-1905215538239803" data-ad-slot="5555555555"></ins>
-<script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
-</div>
+<div class="foot"><ins class="adsbygoogle" style="display:inline-block;width:320px;height:50px" data-ad-client="ca-pub-1905215538239803" data-ad-slot="4444444444"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
 
 <script>
 const LEVELS=[
-{id:1,name:"ਮਿਠਾਈ ਮੈਚ",en:"Level 1 - Mithai Match",type:"match",items:['🍪','🧁','🍭','🍫']},
-{id:2,name:"ਉਡਾਣ ਸ਼ਬਦ",en:"Level 2 - UDA Shabad",type:"fall",target:"UDA",words:['UDA','KHED','MITTI']},
-{id:3,name:"ਫਲਾਂ ਦੀ ਮਿਠਾਸ",en:"Level 3 - Fruit Match",type:"match",items:['🍎','🍓','🍇','🍊']},
-{id:4,name:"ਟਾਫੀ ਬਣਾਓ",en:"Level 4 - Click Toffee",type:"click",items:['🍪','🍦','🍩','🧁','🍫']},
-{id:5,name:"ਤਾਰਿਆਂ ਦੀ ਖੇਡ",en:"Level 5 - Tara Match",type:"match",items:['⭐','🌙','☀️','🌈']},
-{id:6,name:"ਮਿੱਟੀ ਦੀ ਖੁਸ਼ਬੂ",en:"Level 6 - Mitti Shabad",type:"fall",target:"MITTI",words:['MITTI','PANI','UDA']}
+{ name:"ਮਿਠਾਈ ਮੈਚ", hint:"Toffee pe click karo, 🍬 banao - 12 banao toh win!", type:"click", items:['🍪','🍭','🧁','🍫'], need:12 },
+{ name:"ਉਡਾਣ ਸ਼ਬਦ - UDA", hint:"UDA wali toffee fado, KHED ko chhodo! 10 fado", type:"fall", target:"UDA", need:10 },
+{ name:"ਫਲਾਂ ਦੀ ਮਿਠਾਸ", hint:"2 same fal bagal-bagal select karo, 🍬 banenge! 8 jodi banao", type:"match", items:['🍎','🍓','🍇','🍊'], need:8 },
+{ name:"ਟਾਫੀ ਬਣਾਓ", hint:"Fast click! 15 toffee jaldi se 🍬 banao", type:"click", items:['🍩','🍪','🍦','🧁','🍫'], need:15 },
+{ name:"ਤਾਰਿਆਂ ਦੀ ਖੇਡ", hint:"Same stars ko jodo! 8 jodi", type:"match", items:['⭐','🌙','☀️','🌈','💫'], need:8 },
+{ name:"ਮਿੱਟੀ ਦੀ ਖੁਸ਼ਬੂ - MITTI", hint:"MITTI wali toffee fado! 12 fado", type:"fall", target:"MITTI", need:12 }
 ];
-let cur=parseInt(localStorage.getItem('ptc_cur')||0),board=[],score=0,sel=null,soundOn=true,spawnT=null,moveT=null;
-const CANDY='🍬';
-function toggleSound(){soundOn=!soundOn;document.getElementById('soundBtn').innerText=soundOn?'🔊':'🔇'}
-function beep(f=600){if(!soundOn)return;try{let a=new(window.AudioContext||window.webkitAudioContext)();let o=a.createOscillator();o.frequency.value=f;o.connect(a.destination);o.start();setTimeout(()=>o.stop(),120)}catch(e){}}
-function buildMenu(){let m=document.getElementById('levelMenu');m.innerHTML='';LEVELS.forEach((lv,i)=>{let d=document.createElement('div');d.className='lvl';d.innerHTML=lv.name+'<small>'+lv.en+'</small>';d.onclick=()=>startLevel(i);m.appendChild(d);});}buildMenu();
-function saveProgress(){localStorage.setItem('ptc_cur',cur);}
-function resumeGame(){startLevel(cur);}
-function resetProgress(){localStorage.removeItem('ptc_cur');cur=0;alert('Progress Reset!');}
-function goMenu(){document.getElementById('game').style.display='none';document.getElementById('menu').style.display='block';clearInterval(spawnT);clearInterval(moveT);}
-function startLevel(i){cur=i;saveProgress();document.getElementById('menu').style.display='none';document.getElementById('game').style.display='block';restart();}
-function nextLevel(){if(cur<LEVELS.length-1)startLevel(cur+1);else{alert('All Levels Complete!');goMenu();}}
-function restart(){let lv=LEVELS[cur];document.getElementById('ltitle').innerText=lv.name;document.getElementById('hint').innerText=lv.type==='click'?'Click karke 🍪 ko 🍬 banao!':lv.type==='fall'?lv.target+' wali toffee fado!':'3 same jodo!';document.getElementById('score').innerText=0;score=0;sel=null;document.getElementById('winBox').style.display='none';document.getElementById('grid').style.display='grid';document.getElementById('fallArea').style.display='none';document.getElementById('fallArea').innerHTML='';clearInterval(spawnT);clearInterval(moveT);if(lv.type==='click')initClick(lv);else if(lv.type==='match')initMatch(lv);else initFall(lv);}
-function initClick(lv){board=[];let g=document.getElementById('grid');g.innerHTML='';for(let i=0;i<36;i++){let it=lv.items[Math.floor(Math.random()*lv.items.length)];board.push(it);let d=document.createElement('div');d.className='cell';d.innerText=it;d.onclick=()=>{if(board[i]!==CANDY){board[i]=CANDY;d.innerText=CANDY;d.classList.add('candy');beep(800);score++;document.getElementById('score').innerText=score;if(score>=36)win();}};g.appendChild(d);}}
-function initMatch(lv){board=[];let g=document.getElementById('grid');g.innerHTML='';sel=null;for(let i=0;i<36;i++){let it=lv.items[Math.floor(Math.random()*lv.items.length)];board.push(it);let d=document.createElement('div');d.className='cell';d.innerText=it;d.onclick=()=>clickMatch(i);g.appendChild(d);}}
-function clickMatch(i){let cells=document.querySelectorAll('.cell');if(sel===null){sel=i;cells[i].classList.add('sel');}else{if(sel===i){cells[sel].classList.remove('sel');sel=null;return;}let ok=Math.abs(sel-i)===1||Math.abs(sel-i)===6;if(ok){let tmp=board[sel];board[sel]=board[i];board[i]=tmp;cells[sel].innerText=board[sel];cells[i].innerText=board[i];let m=findMatches();if(m.length>=3){beep(900);m.forEach(idx=>{board[idx]=CANDY;cells[idx].innerText=CANDY;cells[idx].classList.add('candy');});score+=m.length;document.getElementById('score').innerText=score;if(board.every(v=>v===CANDY))win();}else{let tmp2=board[sel];board[sel]=board[i];board[i]=tmp2;cells[sel].innerText=board[sel];cells[i].innerText=board[i];beep(200);}}cells[sel].classList.remove('sel');sel=null;}}
-function findMatches(){let s=new Set();for(let r=0;r<6;r++)for(let c=0;c<4;c++){let id=r*6+c;if(board[id]===CANDY)continue;if(board[id+1]===board[id]&&board[id+2]===board[id]){s.add(id);s.add(id+1);s.add(id+2);}}return Array.from(s);}
-let s2=0;function initFall(lv){s2=0;document.getElementById('grid').style.display='none';document.getElementById('fallArea').style.display='block';let area=document.getElementById('fallArea');spawnT=setInterval(()=>{let div=document.createElement('div');let w=Math.random()<0.6?lv.target:lv.words[Math.floor(Math.random()*lv.words.length)];div.className='bubble';div.innerHTML='🍬 '+w;div.dataset.w=w;div.style.left=Math.random()*180+'px';div.style.top='0px';div.onclick=()=>{if(div.dataset.w===lv.target){beep(900);s2++;document.getElementById('score').innerText=s2;div.remove();if(s2>=10)win();}else{beep(200);div.remove();}};area.appendChild(div);},800);moveT=setInterval(()=>{document.querySelectorAll('.bubble').forEach(el=>{el.style.top=(parseInt(el.style.top||0)+3)+'px';if(parseInt(el.style.top)>360)el.remove();});},40);}
-function win(){clearInterval(spawnT);clearInterval(moveT);document.getElementById('winBox').style.display='block';document.getElementById('grid').style.display='none';document.getElementById('fallArea').style.display='none';beep(1200);}
+let cur=0, score=0, sel=null, t1=null, t2=null;
+
+function goMenu(){clearInterval(t1);clearInterval(t2);document.getElementById('game').style.display='none';document.getElementById('menu').style.display='block';}
+function startLevel(n){
+cur=n; score=0; sel=null;
+document.getElementById('score').innerText=0;
+document.getElementById('menu').style.display='none';
+document.getElementById('game').style.display='block';
+document.getElementById('win').style.display='none';
+document.getElementById('grid').style.display='grid';
+document.getElementById('grid').innerHTML='';
+document.getElementById('fall').style.display='none';
+document.getElementById('fall').innerHTML='';
+clearInterval(t1);clearInterval(t2);
+let L=LEVELS[n];
+document.getElementById('lname').innerText=L.name;
+document.getElementById('hint').innerText=L.hint;
+if(L.type==='click') initClick(L);
+else if(L.type==='match') initMatch(L);
+else initFall(L);
+}
+function initClick(L){
+let g=document.getElementById('grid');
+for(let i=0;i<36;i++){
+let c=document.createElement('div');c.className='cell';
+c.innerText=L.items[Math.floor(Math.random()*L.items.length)];
+c.onclick=()=>{
+if(c.innerText!=='🍬'){
+c.innerText='🍬';c.classList.add('done');
+score++;document.getElementById('score').innerText=score;
+if(score>=L.need) win();
+}
+};
+g.appendChild(c);
+}
+}
+function initMatch(L){
+let g=document.getElementById('grid');
+let arr=[];for(let i=0;i<36;i++)arr.push(L.items[Math.floor(Math.random()*L.items.length)]);
+for(let i=0;i<36;i++){
+let c=document.createElement('div');c.className='cell';c.innerText=arr[i];
+c.onclick=()=>{
+if(c.classList.contains('done')) return;
+if(sel===null){sel=c;c.classList.add('sel');}
+else{
+if(sel===c){sel.classList.remove('sel');sel=null;return;}
+if(sel.innerText===c.innerText){
+sel.innerText='🍬';c.innerText='🍬';
+sel.classList.add('done');c.classList.add('done');
+sel.classList.remove('sel');sel=null;
+score++;document.getElementById('score').innerText=score;
+if(score>=L.need) win();
+}else{sel.classList.remove('sel');sel=c;c.classList.add('sel');}
+}
+};
+g.appendChild(c);
+}
+}
+function initFall(L){
+document.getElementById('grid').style.display='none';
+let box=document.getElementById('fall');box.style.display='block';
+let s=0;
+let other=L.target==='UDA'?'KHED':'UDA';
+t1=setInterval(()=>{
+let d=document.createElement('div');d.className='bubble';
+let w=Math.random()<0.65?L.target:other;
+d.innerText='🍬 '+w;d.dataset.w=w;
+d.style.left=Math.random()*220+'px';d.style.top='0px';
+d.onclick=()=>{
+if(d.dataset.w===L.target){s++;document.getElementById('score').innerText=s;if(s>=L.need) win();}
+d.remove();
+};
+box.appendChild(d);
+},850);
+t2=setInterval(()=>{
+box.querySelectorAll('.bubble').forEach(el=>{
+let tp=parseInt(el.style.top||0)+2;el.style.top=tp+'px';
+if(tp>350) el.remove();
+});
+},35);
+}
+function win(){clearInterval(t1);clearInterval(t2);document.getElementById('win').style.display='block';}
+function nextLevel(){if(cur<LEVELS.length-1)startLevel(cur+1);else{alert('All 6 Levels Complete! 🎉');goMenu();}}
 </script>
 </body>
 </html>
