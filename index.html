@@ -1,117 +1,24 @@
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Punjabi Toffee Crush - Best Educational Game</title>
-<meta name="description" content="Punjabi Toffee Crush - Learn Punjabi with fun games for kids">
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1905215538239803" crossorigin="anonymous"></script>
-<style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
-body{background:linear-gradient(180deg,#87CEEB,#FFF176,#FF9800);min-height:100vh}
-.contentBox{padding:18px;background:#fff;max-width:650px;margin:12px auto;border-radius:14px;line-height:1.6;border-left:6px solid #FF6F00;text-align:left}
-.box{max-width:420px;margin:12px auto;background:#fff;border-radius:24px;padding:14px;border:5px solid #FF6F00;text-align:center}
-.btn{color:#fff;border:0;padding:14px;width:100%;border-radius:30px;font-weight:900;font-size:16px;margin-top:8px;cursor:pointer}
-.btn:disabled{opacity:0.4}
-.grid{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;background:#FFF8E1;padding:8px;border-radius:14px;margin:10px 0}
-.c{background:#fff;border-radius:10px;height:52px;display:flex;align-items:center;justify-content:center;font-size:26px;border:2.5px solid #FFCC02;cursor:pointer}
-.c.ok{background:#4CAF50!important;color:#fff!important}
-.fallArea{position:relative;width:100%;height:420px;background:linear-gradient(180deg,#E1F5FE,#B3E5FC);border-radius:16px;overflow:hidden;border:3px solid #03A9F4;margin:10px 0}
-.fallBubble{position:absolute;width:62px;height:62px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:900;color:#fff;border:3px solid #fff;cursor:pointer;animation:fall linear forwards}
-@keyframes fall{0%{transform:translateY(-70px)}100%{transform:translateY(450px)}}
-.bar{width:100%;height:18px;background:#eee;border-radius:20px;overflow:hidden;border:2px solid #FF6F00;margin:8px 0}
-.f{height:100%;background:linear-gradient(90deg,#4CAF50,#8BC34A);width:0%;transition:0.5s}
-.hidden{display:none!important}
-#completeModal{position:fixed;inset:0;background:rgba(0,0,0,0.75);display:flex;align-items:center;justify-content:center;z-index:99999;padding:15px}
-#completeBox{background:#fff;border-radius:28px;padding:22px;max-width:360px;width:100%;text-align:center;border:5px solid #FF6F00}
-</style>
-</head>
-<body>
-
-<div class="contentBox">
-<h1>Punjabi Toffee Crush - Best Match 3 Game for Kids</h1>
-<p><b>Punjabi Toffee Crush</b> is a fun, free and educational puzzle game specially made for Punjabi kids and families. This game combines colorful toffee crushing with learning Punjabi language. Many Punjabi families living in Canada, USA, UK want their kids to learn Punjabi alphabets, so we made this game with love for Punjabi culture.</p>
-<h2>What is inside this game?</h2>
-<p>This game has 6 exciting levels. Level 1 Toffee Crush is classic match 3 puzzle where you match 3 same toffees. Level 2 Ura Aira Bubble Game where Punjabi letters like ੳ, ਅ, ੲ, ਸ, ਹ fall from top like bubbles, you have to pop only correct letters. Level 3 Ka Kha Ga Learning where you learn ਕ ਖ ਗ by matching. Level 4 is Punjabi numbers ੧ ੨ ੩ learning. Level 5 is Shabad making. Final Boss is combination of all levels. All levels are safe, no personal data collection, best for kids age 3 to 10 years. Game works on mobile and computer both, no download needed.</p>
-<h2>How to Play?</h2>
-<p>Just click on Level 1 button to start. Tap on 3 same toffees to crush them. Complete 9 targets to unlock next level. In bubble game, quickly click on correct Punjabi letter before it falls. This lock system helps kids play step by step and learn properly. This website is made with love for Punjabi culture. We will add more games like Punjabi stories and rhymes soon. Enjoy and share with family!</p>
-</div>
-
-<div class="box" id="menu">
-<h1 style="color:#FF6F00;font-size:32px">ਪੰਜਾਬੀ ਟਾਫੀ</h1>
-<p style="color:#E91E63;font-weight:900">Lock System - Level win karke kholo 🔒</p>
-<button class="btn" style="background:linear-gradient(90deg,#FF9800,#E65100)" onclick="start(1)">Level 1 - Toffee ✅</button>
-<button class="btn" id="b2" style="background:linear-gradient(90deg,#2196F3,#0D47A1)" onclick="start(2)">Level 2 - ੳ ਅ ੲ 🔒</button>
-<button class="btn" id="b3" style="background:linear-gradient(90deg,#9C27B0,#4A148C)" onclick="start(3)">Level 3 - ਕ ਖ ਗ 🔒</button>
-<button class="btn" id="b4" style="background:linear-gradient(90deg,#F44336,#B71C1C)" onclick="start(4)">Level 4 - ੧ ੨ ੩ 🔒</button>
-<button class="btn" id="b5" style="background:linear-gradient(90deg,#009688,#004D40)" onclick="start(5)">Level 5 - ਸ਼ਬਦ 🔒</button>
-<button class="btn" id="b6" style="background:linear-gradient(90deg,#FFEB3B,#FF9800);color:#000" onclick="start(6)">FINAL BOSS 👑 🔒</button>
-<button class="btn" style="background:#607D8B" onclick="resetGame()">Reset Game 🔄</button>
-</div>
-
-<div class="box hidden" id="game">
-<div style="display:flex;justify-content:space-between;font-weight:900"><span id="lv">Level 1</span><span id="sc" style="color:#E91E63">0/9</span></div>
-<div class="bar"><div id="pf" class="f"></div></div>
-<p id="msg" style="color:#E91E63;font-weight:900;margin:6px 0"></p>
-<div id="area"></div>
-<button class="btn" style="background:#2196F3" onclick="goNext()">⏭️ Next Level</button>
-<button class="btn" style="background:#9E9E9E" onclick="showMenu()">⬅️ Menu</button>
-</div>
-
-<div id="completeModal" class="hidden">
-<div id="completeBox">
-<div style="font-size:40px">🎉🎊✨</div>
-<h2 style="color:#FF6F00">ਸ਼ਾਬਾਸ਼ ਜੀ! 🎉</h2>
-<p id="completeText" style="font-weight:700">Level Complete!</p>
-<p style="font-size:22px;margin:8px 0">⭐⭐⭐</p>
-<button class="btn" style="background:#4CAF50" onclick="goNext()">⏭️ Next Level</button>
-<button class="btn" style="background:#2196F3" onclick="showMenu()">🏠 Menu</button>
-</div>
-</div>
-
-<footer style="text-align:center;padding:18px;background:#222;color:#fff;margin-top:25px;">
-<a href="about.html" style="color:#ffcc00;margin:5px;text-decoration:none">About Us</a> |
-<a href="privacy.html" style="color:#ffcc00;margin:5px;text-decoration:none">Privacy Policy</a> |
-<a href="contact.html" style="color:#ffcc00;margin:5px;text-decoration:none">Contact Us</a>
-<p style="font-size:12px;margin-top:10px;color:#aaa">© 2026 Punjabi Toffee Crush - Made with Love for Punjab</p>
-</footer>
-
+<html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Punjabi Toffee Crush - All Ads</title>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+<style>*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}body{background:#c8e6c9;display:flex;justify-content:center;padding:10px;padding-bottom:100px}.main{width:100%;max-width:420px}.ad{width:100%;background:#fff;border-radius:12px;margin:8px 0;min-height:90px;display:flex;align-items:center;justify-content:center;border:2px dashed #ffcc02}.card{background:white;border-radius:20px;padding:14px;box-shadow:0 8px 25px rgba(0,0,0,.2);text-align:center}.levels{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:10px 0}.lvl{border:2px solid #ffcc02;background:#fff8e1;border-radius:12px;padding:10px;cursor:pointer}.grid{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;background:#fff3e0;padding:8px;border-radius:12px;margin:10px 0}.cell{aspect-ratio:1;background:white;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:24px;cursor:pointer;border:2px solid #ffe0b2}.cell.candy{background:#e8f5e9;border-color:#4caf50}.btn{width:100%;background:#ff4081;color:white;border:none;padding:12px;border-radius:50px;font-weight:bold;cursor:pointer;margin-top:8px}#fallArea{position:relative;width:100%;height:360px;background:#e1f5fe;border-radius:12px;overflow:hidden;margin:10px 0;border:2px solid #ffcc02;display:none}.bubble{position:absolute;cursor:pointer;background:white;border-radius:50px;padding:5px 10px;border:2px solid #ff4081;font-weight:bold}.adBox{background:#e3f2fd;border:2px solid #2196f3;border-radius:12px;padding:12px;margin:10px 0;display:none}.footer{position:fixed;bottom:0;left:0;right:0;background:white;border-top:3px solid #4caf50;height:85px;display:flex;align-items:center;justify-content:center;z-index:99}</style></head><body>
+<div class="main">
+<div class="ad"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="123" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+<div class="card" id="menu"><h2>🌾 ਪੰਜਾਬੀ ਟਾਫੀ ਕ੍ਰਸ਼</h2><p style="font-size:11px">Har Level + Side + Neeche Ad</p><div class="levels" id="levelMenu"></div></div>
+<div class="card" id="game" style="display:none"><div style="display:flex;justify-content:space-between;font-weight:bold"><button onclick="goMenu()">⬅️</button><span id="levelTitle"></span><span id="score">0</span></div><div class="ad" style="min-height:60px"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="123" data-ad-format="auto"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div><div class="grid" id="grid"></div><div id="fallArea"></div><div class="adBox" id="adBox"><b>🎉 Level Complete - Ad Dekho</b><br><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="123" data-ad-format="auto"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script><button class="btn" style="background:#4caf50" onclick="nextLevel()">Next Level ➡️</button></div><button class="btn" style="background:#aaa" onclick="restart()">Restart</button></div>
+</div><div class="footer"><ins class="adsbygoogle" style="display:inline-block;width:320px;height:50px" data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="123"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
 <script>
-let level=1,score=0,sel=[],board=[],ac,fallInterval;
-let unlocked = parseInt(localStorage.getItem('punjabi_level')||'1');
-function updateLocks(){
-for(let i=2;i<=6;i++){let b=document.getElementById('b'+i);if(!b)continue;if(i<=unlocked){b.disabled=false;b.innerText=b.innerText.replace('🔒','✅')}else{b.disabled=true;}}
-}
-updateLocks();
-function resetGame(){localStorage.setItem('punjabi_level','1');unlocked=1;location.reload();}
-function showMenu(){clearInterval(fallInterval);document.getElementById('completeModal').classList.add('hidden');document.getElementById('menu').classList.remove('hidden');document.getElementById('game').classList.add('hidden');updateLocks();}
-function start(l){if(l>unlocked)return;level=l;document.getElementById('menu').classList.add('hidden');document.getElementById('game').classList.remove('hidden');make();}
-function goNext(){document.getElementById('completeModal').classList.add('hidden');clearInterval(fallInterval);if(level>=unlocked){unlocked=level+1;if(unlocked>6)unlocked=6;localStorage.setItem('punjabi_level',unlocked);}level++;if(level>6){showMenu();return;}make();}
-function showComplete(t){document.getElementById('completeText').innerText=t;document.getElementById('completeModal').classList.remove('hidden');}
-function make(){
-clearInterval(fallInterval);let area=document.getElementById('area');area.innerHTML='';sel=[];score=0;
-document.getElementById('lv').innerText='Level '+level;document.getElementById('sc').innerText='0/9';document.getElementById('pf').style.width='0%';
-let icons,msg;
-if(level==1){icons=["🍪","🍩","🧁"];msg='3 same toffee chuno 🍪';}
-else if(level==2){msg='ੳ ਅ ੲ Phodo 🫧';document.getElementById('msg').innerText=msg;let target=["ੳ","ਅ","ੲ"],all=["ੳ","ਅ","ੲ","ਸ","ਹ"],fallArea=document.createElement('div');fallArea.className='fallArea';area.appendChild(fallArea);fallInterval=setInterval(()=>{if(score>=9){clearInterval(fallInterval);return;}let ch=all[Math.floor(Math.random()*all.length)];let b=document.createElement('div');b.className='fallBubble';b.innerText=ch;b.style.left=Math.random()*78+'%';b.style.background=target.includes(ch)?'#4CAF50':'#03A9F4';b.style.animationDuration=(3+Math.random()*2)+'s';b.onclick=function(){if(target.includes(ch)){score++;upd();this.remove();if(score>=9)setTimeout(()=>showComplete("Level 2 Complete! 🎉"),400);}else{this.style.opacity='0.2';}};fallArea.appendChild(b);setTimeout(()=>{if(b.parentNode)b.remove();},5000);},650);return;}
-else if(level==3){icons=["ਕ","ਖ","ਗ"];msg='ਕ ਖ ਗ Match Karo 📚';}
-else if(level==4){icons=["੧","੨","੩"];msg='੧ ੨ ੩ Match Karo 🔢';}
-else if(level==5){icons=["ਸਕੂਲ","ਪਾਣੀ","ਘਰ"];msg='ਸ਼ਬਦ Match Karo 📖';}
-else{icons=["ੳ","ਕ","੧"];msg='FINAL BOSS - Sab Kuch! 👑';}
-document.getElementById('msg').innerText=msg;
-let p=[];for(let j=0;j<3;j++)for(let i=0;i<9;i++)p.push(icons[j]);p.sort(()=>Math.random()-0.5);board=p;
-let g=document.createElement('div');g.className='grid';
-for(let i=0;i<27;i++){let d=document.createElement('div');d.className='c';d.innerText=p[i];if(level==5)d.style.fontSize='13px';d.onclick=function(){if(this.classList.contains('ok'))return;this.style.background='#FCE4EC';sel.push(i);if(sel.length==3){let a=board[sel[0]],b=board[sel[1]],c=board[sel[2]],all=g.querySelectorAll('.c');if(a==b&&b==c){sel.forEach(s=>{all[s].innerText='✅';all[s].className='c ok';});score++;upd();sel=[];if(score>=9)setTimeout(()=>showComplete("Level "+level+" Complete! 🎉"),500);}else{let t=[...sel];setTimeout(()=>{t.forEach(s=>all[s].style.background='#fff');},350);sel=[];}}};g.appendChild(d);}area.appendChild(g);
-}
-function upd(){document.getElementById('sc').innerText=score+'/9';document.getElementById('pf').style.width=score/9*100+'%';}
-</script>
-<footer style="text-align:center;padding:20px;background:#222;color:#fff;margin-top:20px;">
-<a href="about.html" style="color:#ffcc00;margin:0 8px;">About Us</a> |
-<a href="privacy.html" style="color:#ffcc00;margin:0 8px;">Privacy Policy</a> |
-<a href="contact.html" style="color:#ffcc00;margin:0 8px;">Contact Us</a>
-<p style="margin-top:10px;font-size:12px;color:#aaa">© 2026 Punjabi Toffee Crush</p>
-</footer>
-</body>
-</html>
-</body>
-</html>
+const LEVELS=[{id:1,name:"Level 1",type:"match",items:['🍪','🧁','🍭','🍫']},{id:2,name:"Level 2",type:"fall",target:"UDA",words:['UDA','KHED']},{id:3,name:"Level 3",type:"match",items:['🍎','🍓','🍇','🍊']},{id:4,name:"Level 4",type:"click",items:['🍪','🍦']},{id:5,name:"Level 5",type:"match",items:['⭐','🌙','☀️','🌈']},{id:6,name:"Level 6",type:"fall",target:"MITTI",words:['MITTI','PANI']}];
+let cur=0,board=[],score=0,sel=null,sInt=null,fInt=null;const CANDY='🍬';
+function buildMenu(){let m=document.getElementById('levelMenu');m.innerHTML='';LEVELS.forEach((lv,i)=>{let d=document.createElement('div');d.className='lvl';d.innerHTML='<b>'+lv.name+'</b><br>'+lv.type;d.onclick=()=>startLevel(i);m.appendChild(d)})}buildMenu();
+function goMenu(){document.getElementById('game').style.display='none';document.getElementById('menu').style.display='block';clearInterval(sInt);clearInterval(fInt)}
+function startLevel(i){cur=i;document.getElementById('menu').style.display='none';document.getElementById('game').style.display='block';restart()}
+function nextLevel(){if(cur<5)startLevel(cur+1);else{alert('All Done!');goMenu()}}
+function restart(){let lv=LEVELS[cur];document.getElementById('levelTitle').innerText=lv.name;document.getElementById('adBox').style.display='none';score=0;document.getElementById('score').innerText=0;document.getElementById('grid').style.display='grid';document.getElementById('fallArea').style.display='none';if(lv.type==='click')initClick(lv);else if(lv.type==='match')initMatch(lv);else initFall(lv)}
+function initClick(lv){board=[];let g=document.getElementById('grid');g.innerHTML='';for(let i=0;i<36;i++){let it=lv.items[Math.floor(Math.random()*lv.items.length)];board.push(it);let d=document.createElement('div');d.className='cell';d.innerText=it;d.onclick=()=>{if(board[i]!==CANDY){board[i]=CANDY;d.innerText=CANDY;d.classList.add('candy');score++;document.getElementById('score').innerText=score;if(score>=36){document.getElementById('adBox').style.display='block';document.getElementById('grid').style.display='none';}}};g.appendChild(d)}}
+function initMatch(lv){board=[];let g=document.getElementById('grid');g.innerHTML='';sel=null;for(let i=0;i<36;i++){let it=lv.items[Math.floor(Math.random()*lv.items.length)];board.push(it);let d=document.createElement('div');d.className='cell';d.innerText=it;d.onclick=()=>clickMatch(i);g.appendChild(d)}}
+function clickMatch(i){let cells=document.querySelectorAll('.cell');if(sel===null){sel=i;cells[i].style.borderColor='#ff4081'}else{if(sel===i){cells[sel].style.borderColor='#ffe0b2';sel=null;return}let ok=Math.abs(sel-i)===1||Math.abs(sel-i)===6;if(ok){let tmp=board[sel];board[sel]=board[i];board[i]=tmp;cells[sel].innerText=board[sel];cells[i].innerText=board[i];let m=[];for(let r=0;r<6;r++)for(let c=0;c<4;c++){let id=r*6+c;let v=board[id];if(v!==CANDY&&board[id+1]===v&&board[id+2]===v)m.push(id,id+1,id+2)}if(m.length>=3){m.forEach(idx=>{board[idx]=CANDY;cells[idx].innerText=CANDY;cells[idx].classList.add('candy')});score+=m.length;document.getElementById('score').innerText=score;if(board.every(v=>v===CANDY)){document.getElementById('adBox').style.display='block';document.getElementById('grid').style.display='none';}} }cells[sel].style.borderColor='#ffe0b2';sel=null}}
+let s2=0;
+function initFall(lv){s2=0;document.getElementById('grid').style.display='none';document.getElementById('fallArea').style.display='block';document.getElementById('fallArea').innerHTML='';sInt=setInterval(()=>{let area=document.getElementById('fallArea');let div=document.createElement('div');let w=Math.random()<0.6?lv.target:lv.words[Math.floor(Math.random()*lv.words.length)];div.className='bubble';div.innerHTML='🍬 '+w;div.dataset.w=w;div.style.left=Math.random()*200+'px';div.style.top='0px';div.onclick=()=>{if(div.dataset.w===lv.target){s2++;document.getElementById('score').innerText=s2;div.remove();if(s2>=10){document.getElementById('adBox').style.display='block';document.getElementById('fallArea').style.display='none';clearInterval(sInt);clearInterval(fInt)}}else div.remove()};area.appendChild(div)},800);fInt=setInterval(()=>{document.querySelectorAll('.bubble').forEach(el=>{el.style.top=(parseInt(el.style.top||0)+3)+'px';if(parseInt(el.style.top)>360)el.remove()})},40)}
+</script></body></html>
